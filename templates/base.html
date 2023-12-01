@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/styles/home.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="../static/styles/base.css" />
+    {% block homeStyles %} {% endblock homeStyles %} {% block aboutStyles %} {% endblock aboutStyles %}
     <title>Belief</title>
   </head>
 
@@ -17,9 +18,7 @@
         <img
           class="logo"
           src="../static/img/logo_belief.png"
-          alt="10%"
-          width="10%"
-          height="10%"
+          alt="logo"
         />
         <ul>
           <li><a href="/">Home</a></li>
@@ -29,20 +28,3 @@
       </nav>
     </header>
     {% block home %} {% endblock home %} {% block about %} {% endblock about %}
-    <footer>
-      <div class="social">
-        <div>
-          <img src="../static/img/logo_belief.png" alt="logo" />
-        </div>
-      </div>
-      <div class="contact">
-        <h3>Social Links</h3>
-        <div>
-          <i class="fa fa-github" style="font-size: 24px"></i>
-          <i class="fa fa-envelope" style="font-size: 20px"></i>
-          <i class="fa fa-linkedin-square" style="font-size: 22px"></i>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
