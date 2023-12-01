@@ -1,191 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: white;
-    font-family: 'Maven Pro', sans-serif;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-body {
-    background-color: #000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-}
-
-nav img {
-    filter: invert(100%);
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 3rem;
-}
-
-nav ul li a {
-    font-size: 2rem;
-    font-family: 'Prompt', sans-serif;
-    color: #58D68D;
+main::before,
+main::after {
+  content: "";
 }
 
 .intro {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.intro::before,
+.intro::after {
+  content: "";
 }
 
 .intro img {
-    filter: invert(100%);
+  width: 10rem;
+  filter: invert(100%);
 }
 
-nav li {
-    display: inline;
-    margin-right: 10px;
+.intro p {
+    width: 90%;
 }
 
-nav a {
-    text-decoration: none;
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-main {
-    padding: 20px;
+.input h2 {
+    color: #1DA1F2;
 }
 
-.working {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.input::before,
+.input::after {
+  content: "";
 }
 
-.working h3,
-h4,
-li {
-    font-family: 'Chakra Petch', sans-serif;
+main article .input h3 {
+  font-family: "Chakra Petch", sans-serif;
 }
 
-.working ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem
+button[type="submit"] {
+  background-color: #1DA1F2;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
 }
-
-.working li {
-    list-style-type: none;
-    font-size: 1.3rem;
-}
-
-.output {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-button[type=submit] {
-    background-color: #58D68D;
-    border-radius: 50%;
-    text-align: center;
-    padding: 5px 10px;
-    font-size: 10px;
-    border: 2px;
-}
-
-footer {
-    background-color: #58D68D;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-    padding: 1rem 1rem;
-}
-
-footer img {
-    width: 10rem;
-}
-
-.license {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/*  */
 
 .search-box {
-    background-color: #202630;
-    width: 25rem;
-    border-radius: 40px;
-    border: 2px solid #58D68D;
-    padding: 10px 18px;
+  background-color: #202630;
+  width: 25rem;
+  border-radius: 40px;
+  border: 2px solid #1DA1F2;
+  padding: 10px 18px;
 }
 
-.search-box:hover>.icon {
-    background-color: #536179;
+.search-box:hover > .icon {
+  background-color: #536179;
 }
 
 .icon {
-    color: #EAFAF1;
-    float: right;
-    width: 40px;
-    font-size: 1rem;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #58D68D;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    cursor: pointer;
-    text-decoration: none;
+  color: #eafaf1;
+  float: right;
+  width: 40px;
+  font-size: 1rem;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1DA1F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 input {
-    /* width: 0; */
-    border: none;
-    outline: none;
-    padding: 0 10px;
-    background: none;
-    font-size: 1.1rem;
-    transition: 0.5s ease;
-    line-height: 40px;
-    color: #fff;
+  width: 20rem;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  background: none;
+  font-size: 1.1rem;
+  transition: 0.5s ease;
+  line-height: 40px;
+  color: #fff;
 }
 
-img[alt=positive] {
-    width: 2rem;
-}
-
-img[alt=neutral] {
-    width: 2rem;
-}
-
-img[alt=negative] {
-    width: 2rem;
+.output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .output ul li {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .output ul li p {
-    font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
 }
 
-.contact h3, i {
-    color: black;
+.contact h3,
+i {
+  color: black;
+}
+
+footer {
+  background-color: #1DA1F2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+}
+
+footer img {
+  width: 10rem;
+}
+
+img[alt="positive"] {
+  width: 2rem;
+}
+
+img[alt="neutral"] {
+  width: 2rem;
+}
+
+img[alt="negative"] {
+  width: 2rem;
 }

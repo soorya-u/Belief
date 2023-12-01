@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
-<!--  -->
+
+<!-- Styles -->
+
+{% block homeStyles %}
+<link rel="stylesheet" href="../static/styles/home.css" />
+{% endblock homeStyles %}
+
+<!-- Page -->
+
 {% block home %}
 <main>
   <article>
@@ -7,41 +15,36 @@
       <img src="../static/img/logo_b.png" alt="logo" />
       <p>
         This is <b>be(;ef</b>, the sentiment analysis website ,designed to
-        derive the opinion or attitude <br />
-        of speaker at Covid-19 pandamic crisis.I'm here to be your's great
-        companion,providing
-        <br />
-        a profound understanding of the emotions expressed in text.
+        derive the opinion or attitude of speaker at COVID-19 pandamic
+        crisis.I'm here to be your's great companion,providing a profound
+        understanding of the emotions expressed in text.
       </p>
     </section>
 
-    <section class="working">
-      <h3>Please enter your keyword or sentence from tweets:</h3>
+    <section class="input">
+      <h2>Enter your Keyword or Sentence from Tweets:</h2>
       <form class="search-box" action="/" method="post">
         <input type="text" name="tweet" id="" placeholder="Enter a tweet..." />
         <button type="submit" class="icon">
           <i class="fa fa-twitter"></i>
         </button>
       </form>
+    </section>
 
-      <h2>Overall opinion :</h2>
-
-      <div class="output">
-        <ul>
-          <li>
-            <img src="../static/img/positive.png" alt="positive" />
-            <p>Positive: {{output}}</p>
-          </li>
-          <li>
-            <img src="../static/img/neutral.png" alt="neutral" />
-            <p>Neutral: {{output}}</p>
-          </li>
-          <li>
-            <img src="../static/img/negative.png" alt="negative" />
-            <p>Negative: {{output}}</p>
-          </li>
-        </ul>
-      </div>
+    <section class="output">
+      {% if output=='Positive' %}
+      <h2>Overall Opinion :</h2>
+      <img src="../static/img/positive.png" alt="positive" />
+      <h2 style="color: #00FF00">{{output}}</h2>
+      {% elif output=='Neutral' %}
+      <h2>Overall Opinion :</h2>
+      <img src="../static/img/neutral.png" alt="neutral" />
+      <h2 style="color: #FBEC5D;">{{output}}</h2>
+      {% elif output=='Negative' %}
+      <h2>Overall Opinion :</h2>
+      <img src="../static/img/negative.png" alt="negative" />
+      <h2 style="color: #ff1201;">{{output}}</h2>
+      {% else %} {% endif %}
     </section>
   </article>
 </main>
