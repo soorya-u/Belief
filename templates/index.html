@@ -1,94 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+<!--  -->
+{% block home %}
+<main>
+  <article>
+    <section class="intro">
+      <img src="../static/img/logo_b.png" alt="logo" />
+      <p>
+        This is <b>be(;ef</b>, the sentiment analysis website ,designed to
+        derive the opinion or attitude <br />
+        of speaker at Covid-19 pandamic crisis.I'm here to be your's great
+        companion,providing
+        <br />
+        a profound understanding of the emotions expressed in text.
+      </p>
+    </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Your Website Title</title>
-</head>
+    <section class="working">
+      <h3>Please enter your keyword or sentence from tweets:</h3>
+      <form class="search-box" action="/" method="post">
+        <input type="text" name="tweet" id="" placeholder="Enter a tweet..." />
+        <button type="submit" class="icon">
+          <i class="fa fa-twitter"></i>
+        </button>
+      </form>
 
-<body>
+      <h2>Overall opinion :</h2>
 
-    <header>
-        <nav>
-            <img class="logo" src="../static/img/logo_belief.png" alt="10%" width="10%" height="10%">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">About us</a></li>
-                <li><a href="/">Stats</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <section class="intro">
-
-                <img src="../static/img/logo_b.png" alt="logo">
-                <p> This is <b>be(;ef</b>, the sentiment analysis website ,designed to
-                    derive the opinion
-                    or attitude <br> of speaker at Covid-19 pandamic crisis.I'm here to be your's great
-                    companion,providing
-                    <br>
-                    a profound understanding of the emotions expressed in text.
-                </p>
-            </section>
-
-            <section class="working">
-
-                <h3>Please enter your keyword or sentence from tweets: </h3>
-                <form class="search-box" action="/" method="post">
-                    <input type="text" name="" id="" placeholder="search...">
-                    <a href="##" class="icon">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </form>
-
-                <h2>Overall opinion :</h2>
-
-                <div class="output">
-
-                    <ul>
-                        <li>
-                            <img src="../static/img/positive.png" alt="positive">
-                            <p>
-                                Positive:
-                            </p>
-                        </li>
-                        <li>
-                            <img src="../static/img/neutral.png" alt="neutral">
-                            <p>
-                                Neutral:
-                            </p>
-                        </li>
-                        <li>
-                            <img src="../static/img/negative.png" alt="negative">
-                            <p>
-                                Negative:
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-        </article>
-    </main>
-    <footer>
-        <div class="social">
-            <div>
-                <img src="../static/img/logo_belief.png" alt="logo">
-            </div>
-        </div>
-        <div class="contact">
-            <b>Contact us </b>
-            <div>
-                <i class="fa fa-github" style="font-size:24px"></i>
-                <i class="fa fa-envelope" style="font-size:20px"></i>
-                <i class="fa fa-linkedin-square" style="font-size:22px"></i>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+      <div class="output">
+        <ul>
+          <li>
+            <img src="../static/img/positive.png" alt="positive" />
+            <p>Positive: {{output}}</p>
+          </li>
+          <li>
+            <img src="../static/img/neutral.png" alt="neutral" />
+            <p>Neutral: {{output}}</p>
+          </li>
+          <li>
+            <img src="../static/img/negative.png" alt="negative" />
+            <p>Negative: {{output}}</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock home %}

@@ -93,8 +93,8 @@ li {
 }
 
 button[type=submit] {
-    background-color: #A2CFFE;
-    border-radius: 12px;
+    background-color: #58D68D;
+    border-radius: 50%;
     text-align: center;
     padding: 5px 10px;
     font-size: 10px;
@@ -184,4 +184,8 @@ img[alt=negative] {
 
 .output ul li p {
     font-family: 'Chakra Petch', sans-serif;
+}
+
+.contact h3, i {
+    color: black;
 }
