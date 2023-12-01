@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    tweet=''
     prediction=['']
     if request.method == 'POST':
         tweet = request.form['tweet']
@@ -16,7 +17,7 @@ def home():
         algo = MLAlgorithms(path=r'./logic')
         prediction = algo.getPrediction(pr)
 
-    return render_template('index.html', output=prediction[0])
+    return render_template('index.html', output=prediction[0], value=tweet)
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
