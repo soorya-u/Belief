@@ -70,7 +70,5 @@ class MLAlgorithms:
 
         vectorized = count_vectorizer.transform(test_list)
         pred = model.predict(vectorized)
-        print(pred)
-        
-        print('\n\n\n')
+        return pred
 
