@@ -49,3 +49,32 @@ nav ul li a {
   color: #1da1f2;
   text-decoration: none;
 }
+
+@media (width<600px) {
+  nav {
+    justify-content: center;
+  }
+
+  nav img {
+    display: none;
+  }
+
+  nav ul {
+    gap: 2rem;
+  }
+
+  nav ul::before, ul::after {
+    content: '';
+  }
+}
+
+@media (width<335px) {
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  nav ul li a {
+    font-size: 1.5rem;
+  }
+}
