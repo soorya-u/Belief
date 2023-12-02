@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
+{% block aboutStyles %}
+<link rel="stylesheet" href="../static/styles/about.css" />
+{% endblock aboutStyles %}
+
 <!--  -->
 {% block about %}
-<h1>About Page</h1>
+<main>
+    <section class="content">
+            <div class="social">
+                <div>
+                    <img src="../static/img/logo_b.png" alt="logo">
+                </div>
+            </div>
+            
+        <article>    
+            <h2>The Team</h2>
+            <p>We are four in team from Adichunchanagiri Institute of Technology, AIML Department
+              Chikkamagaluru,developed a webpage be(;ef as our Internship project for 3rd Year on Sentiment Analysis Of Lockdown In India During Covid-19 
+             A case Study On Twitter using Machine Learning associated by Compsoft Technologies.</p>
+        </article>
+        <article>
+             <div class="container">
+                    <h2>Teammates</h2>
+                    <img src="../static/img/devs/Saanvi MJ.jpeg" alt="Avatar" class="image">
+                    <div class="overlay">
+                      <div class="text">
+                       <p>Saanvi MJ
+                         AIML Dept 
+                         4AI21AI044</p> 
+                    </div>
+                    </div>
+            </div>
+        </article>
+        
+    </section>
+    <footer>
+        <h3>Connect Geeks</h3>
+    </footer>
+
+</main> 
 {% endblock about %}
