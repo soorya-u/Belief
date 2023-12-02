@@ -1,10 +1,12 @@
 import joblib
+import pandas as pd
+
 
 class MLAlgorithms:
 
-    def __init__(self, path:str, model_name='Logistic-Regression') -> None:
+    def __init__(self, path: str, model_name='Logistic-Regression') -> None:
 
-        self.path  = path
+        self.path = path
 
         match model_name:
             case 'Ada-Boost-Classifier':
@@ -56,15 +58,17 @@ class MLAlgorithms:
         return perceptron
 
     def ridgeClassifier(self):
-        ridge_classifier = joblib.load(self.path+r'/models/RidgeClassifier.joblib')
+        ridge_classifier = joblib.load(
+            self.path+r'/models/RidgeClassifier.joblib')
         return ridge_classifier
 
     def countVectorizer(self):
-        count_vectorizer = joblib.load(self.path+r'/models/CountVectorizer.joblib')
+        count_vectorizer = joblib.load(
+            self.path+r'/models/CountVectorizer.joblib')
         return count_vectorizer
 
-    def getPrediction(self, test_list: list):
-
+    def getOverallPrediction(self, test_list: list):
+        print(test_list)
         model = self.model
         count_vectorizer = self.countVectorizer()
 
@@ -72,3 +76,36 @@ class MLAlgorithms:
         pred = model.predict(vectorized)
         return pred
 
+    def getPercentagePrediction(self, test_list: list):
+        model = self.model
+        count_vectorizer = self.countVectorizer()
+        res = []
+
+        for s in test_list[0].split(" "):
+            vectorized = count_vectorizer.transform([s])
+            pred = model.predict(vectorized)
+            res.append(pred[0])
+
+        df = pd.DataFrame(res, columns=['result'])
+
+        try:
+            pos = df['result'].value_counts()['Positive']
+        except Exception as e:
+            pos = 0
+
+        try:
+            neu = df['result'].value_counts()['Neutral']
+        except Exception as e:
+            neu = 0
+        try:
+            neg = df['result'].value_counts()['Negative']
+        except Exception as e:
+            neg = 0
+
+        total = neg+neu+pos
+
+        pos_percent = round((pos*100/total), 2)
+        neg_percent = round((neg*100/total), 2)
+        neu_percent = 100-(pos_percent+neg_percent)
+
+        return [pos_percent, neu_percent, neg_percent]
