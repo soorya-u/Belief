@@ -9,15 +9,19 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def home():
     tweet=''
-    prediction=['']
-    if request.method == 'POST':
+    overall_prediction=['']
+    pos= ''
+    neu= ''
+    neg= ''
+    if request.method == 'POST' and request.form['tweet']!='':
         tweet = request.form['tweet']
         pre = PreProcessor(tweet)
         pr = pre.preProcess()
         algo = MLAlgorithms(path=r'./logic')
-        prediction = algo.getPrediction(pr)
+        overall_prediction = algo.getOverallPrediction(pr)
+        pos, neu, neg = algo.getPercentagePrediction(pr)
 
-    return render_template('index.html', output=prediction[0], value=tweet)
+    return render_template('index.html', output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg)
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
