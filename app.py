@@ -23,9 +23,13 @@ def home():
 
     return render_template('index.html', output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg)
 
-@app.route("/about", methods=['GET', 'POST'])
+@app.route("/about")
 def about():
     return render_template('about.html')
+
+@app.route("/stats", methods=['GET', 'POST'])
+def stats():
+    return render_template('stats.html')
 
 
 if __name__ == "__main__":
