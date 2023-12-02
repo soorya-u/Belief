@@ -129,8 +129,11 @@ input {
   gap: 0.5rem;
 }
 
-.overall h2 {
+.input h2,
+.overall h2,
+.progress-bar h2 {
   font-family: "Chakra Petch", sans-serif;
+  text-align: center;
 }
 
 .progress-bar {
@@ -146,6 +149,10 @@ td,
   font-family: "Chakra Petch", sans-serif;
 }
 
+.progress-title {
+  font-size: 1.3rem;
+}
+
 .arrange {
   display: flex;
   justify-content: flex-end;
@@ -158,10 +165,10 @@ td,
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
-  width: 13vw;
+  width: 230px;
   border: 2px solid white;
   border-radius: 15px;
-  overflow: hidden; 
+  overflow: hidden;
   color: white;
   height: 1.3rem;
 }
@@ -177,7 +184,6 @@ td,
   color: #000;
 }
 
-
 img[alt="positive"] {
   width: 2rem;
 }
@@ -188,4 +194,44 @@ img[alt="neutral"] {
 
 img[alt="negative"] {
   width: 2rem;
+}
+
+@media (width<600px) {
+  .output {
+    width: 95vw;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .output .overall {
+    align-self: center;
+  }
+}
+
+@media (width<1080px) {
+  .output {
+    width: 95vw;
+    justify-content: space-evenly;
+  }
+}
+
+@media (width<800px) {
+  .output {
+    width: 95vw;
+    justify-content: space-between;
+  }
+}
+
+@media (width<450px) {
+  .progress-bar .progress {
+    width: 60vw;
+  }
+  .search-box {
+    box-sizing: content-box;
+    width: 80vw;
+  }
+  input {
+    width: 60vw;
+    padding: 0 15px;
+  }
 }
