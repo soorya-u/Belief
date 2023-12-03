@@ -9,5 +9,92 @@
 <!-- Page -->
 
 {% block stat %}
-<h1>Stats Page</h1>
+
+<main>
+  <h1>Stats for Nerds</h1>
+  <form action="/stats" method="post">
+    <section class="input">
+      <h2>Enter your Keyword or Tweets:</h2>
+      <div class="search-box">
+        <input
+          class="tweet-box"
+          type="text"
+          name="tweet"
+          value="{{value}}"
+          placeholder="Enter a tweet..."
+        />
+        <button type="submit" class="icon">
+          <i class="fa fa-twitter"></i>
+        </button>
+      </div>
+    </section>
+    <section class="input">
+      <h2>Select any of Our Trained Model:</h2>
+      <details class="custom-select">
+        <summary class="radios">
+          <input
+            type="radio"
+            value="Linear-SVC"
+            name="model-name"
+            id="default"
+            title="Select a Model..."
+            checked
+          />
+          <input
+            type="radio"
+            name="model-name"
+            id="item1"
+            title="Ada Boost Classifier"
+          />
+          <input type="radio" name="model-name" value="Bernoulli-NB" id="item2" title="Bernoulli NB" />
+          <input type="radio" name="model-name" value="Linear-SVC" id="item3" title="Linear SVC" />
+          <input
+            type="radio"
+            name="model-name"
+            value="Logistic-Regression"
+            id="item4"
+            title="Logistic Regression"
+          />
+          <input type="radio" name="model-name" id="item5" title="Multinomial NB" />
+          <input
+            type="radio"
+            name="model-name"
+            value="Passive-Aggressive-Classifier"
+            id="item6"
+            title="Passive Aggressive Classifier"
+          />
+          <input type="radio" name="model-name" value="Perceptron" id="item7" title="Perceptron" />
+          <input type="radio" name="model-name" title="Ridge-Classifier" id="item8" title="Ridge Classifier" />
+        </summary>
+        <ul class="list select">
+          <li class="option">
+            <label for="item1">Ada Boost Classifier</label>
+          </li>
+          <li class="option">
+            <label for="item2">Bernoulli NB</label>
+          </li>
+          <li class="option">
+            <label for="item3">Linear SVC <em>(Default)</em></label>
+          </li>
+          <li class="option">
+            <label for="item4">Logistic Regression</label>
+          </li>
+          <li class="option">
+            <label for="item5">Multinomial NB</label>
+          </li>
+          <li class="option">
+            <label for="item6">Passive Aggressive Classifier</label>
+          </li>
+          <li class="option">
+            <label for="item7">Perceptron</label>
+          </li>
+          <li class="option">
+            <label for="item8">Ridge Classifier</label>
+          </li>
+        </ul>
+      </details>
+    </section>
+  </form>
+  <div></div>
+</main>
 {% endblock stat %}
