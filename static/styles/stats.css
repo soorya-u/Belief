@@ -247,7 +247,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 5rem;
 }
 
@@ -375,6 +375,7 @@ h3 {
   color: #1da1f2;
 }
 
+
 @media (width<600px) {
   .output {
     width: 95vw;
@@ -398,6 +399,12 @@ h3 {
   .output {
     width: 95vw;
     justify-content: space-between;
+  }
+}
+
+@media (width<500px) {
+  .stats img {
+    width: 70vw;
   }
 }
 
