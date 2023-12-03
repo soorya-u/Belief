@@ -3,7 +3,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 main::before,
@@ -339,6 +339,11 @@ img[alt="negative"] {
 
 /*  */
 
+.logo img {
+  width: 10rem;
+  filter: invert(100%);
+}
+
 .stats {
   display: flex;
   justify-content: center;
@@ -347,7 +352,8 @@ img[alt="negative"] {
   gap: 0.5rem;
 }
 
-.stats h2, h3 {
+.stats h2,
+h3 {
   font-family: "Chakra Petch", sans-serif;
   color: #fff;
   text-align: center;

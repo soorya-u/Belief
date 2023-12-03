@@ -11,6 +11,9 @@
 {% block stat %}
 
 <main>
+  <section class="logo">
+    <img src="../static/img/logo_b.png" class="logo" alt="logo" />
+  </section>
   <h1>Stats for Nerds</h1>
   <form action="/stats" method="post">
     <section class="input">
@@ -31,7 +34,7 @@
 
     <section class="input">
       <h2>Select any of Our Trained Model:</h2>
-      <details class="custom-select">
+      <details id="detail-element" class="custom-select">
         <summary class="radios">
           <input
             type="radio"
@@ -100,28 +103,28 @@
         </summary>
         <ul class="list select">
           <li class="option">
-            <label for="item1">Ada Boost Classifier</label>
+            <label onclick="handleClick()" for="item1">Ada Boost Classifier</label>
           </li>
           <li class="option">
-            <label for="item2">Bernoulli NB</label>
+            <label onclick="handleClick()" for="item2">Bernoulli NB</label>
           </li>
           <li class="option">
-            <label for="item3">Linear SVC <em>(Default)</em></label>
+            <label onclick="handleClick()" for="item3">Linear SVC <em>(Default)</em></label>
           </li>
           <li class="option">
-            <label for="item4">Logistic Regression</label>
+            <label onclick="handleClick()" for="item4">Logistic Regression</label>
           </li>
           <li class="option">
-            <label for="item5">Multinomial NB</label>
+            <label onclick="handleClick()" for="item5">Multinomial NB</label>
           </li>
           <li class="option">
-            <label for="item6">Passive Aggressive Classifier</label>
+            <label onclick="handleClick()" for="item6">Passive Aggressive Classifier</label>
           </li>
           <li class="option">
-            <label for="item7">Perceptron</label>
+            <label onclick="handleClick()" for="item7">Perceptron</label>
           </li>
           <li class="option">
-            <label for="item8">Ridge Classifier</label>
+            <label onclick="handleClick()" for="item8">Ridge Classifier</label>
           </li>
         </ul>
       </details>
@@ -199,9 +202,11 @@
     <h2>Selected Model</h2>
     <h2 class="model-name">{{model_name}}</h2>
     <h3>Accuracy: <span>{{accuracy_score}}%</span></h3>
-    <h3>Confusion Matrix: </h3>
-    <img src="{{img_path}}" alt="confusion-matrix">
+    <h3>Confusion Matrix:</h3>
+    <img src="{{img_path}}" alt="confusion-matrix" />
     {% endif %}
   </section>
 </main>
+
+<script src="../static/js/stats.js"></script>
 {% endblock stat %}
