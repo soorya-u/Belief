@@ -15,6 +15,8 @@ main h1,
 .input h2 {
   font-family: "Chakra Petch", sans-serif;
   color: #1da1f2;
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
 main h1 {
@@ -245,9 +247,170 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5rem;
 }
 
-input[id="default"] {
+input[title="Select a Model..."] {
   color: #727272;
+}
+
+/*  */
+
+.output {
+  display: flex;
+  width: 60vw;
+  justify-content: space-around;
+}
+
+.overall {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: start;
+}
+
+.overall div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+td,
+.progress span {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.progress-title {
+  font-size: 1.3rem;
+}
+
+.arrange {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar .progress {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 230px;
+  border: 2px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  height: 1.3rem;
+}
+
+.progress span {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  height: 100%;
+  color: #000;
+}
+
+img[alt="positive"] {
+  width: 2rem;
+}
+
+img[alt="neutral"] {
+  width: 2rem;
+}
+
+img[alt="negative"] {
+  width: 2rem;
+}
+
+/*  */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stats h2, h3 {
+  font-family: "Chakra Petch", sans-serif;
+  color: #fff;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.stats h2.model-name {
+  font-family: "Chakra Petch", sans-serif;
+  color: #1da1f2;
+  text-align: center;
+  padding: 0 0.5rem 1.5rem 0.5rem;
+  font-size: 1.8rem;
+}
+
+.stats h3 {
+  font-size: 1.2rem;
+}
+
+.stats h3 span {
+  color: #1da1f2;
+}
+
+@media (width<600px) {
+  .output {
+    width: 95vw;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .output .overall {
+    align-self: center;
+  }
+}
+
+@media (width<1080px) {
+  .output {
+    width: 95vw;
+    justify-content: space-evenly;
+  }
+}
+
+@media (width<800px) {
+  .output {
+    width: 95vw;
+    justify-content: space-between;
+  }
+}
+
+@media (width<450px) {
+  .progress-bar .progress {
+    width: 60vw;
+  }
+  .search-box {
+    box-sizing: content-box;
+    width: 80vw;
+  }
+  .tweet-box {
+    width: 50vw;
+    padding: 0 15px;
+  }
+  details {
+    width: auto;
+  }
+  summary {
+    width: 70vw;
+  }
 }
