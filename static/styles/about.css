@@ -6,6 +6,15 @@ main {
   gap: 1.5rem;
 }
 
+main h1,
+.input h2 {
+  font-family: "Chakra Petch", sans-serif;
+  color: #1da1f2;
+  text-align: center;
+  padding: 0 0.5rem;
+  font-size: 4rem;
+}
+
 main::before,
 main::after {
   content: "";
