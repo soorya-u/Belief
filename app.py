@@ -23,12 +23,12 @@ def home():
         overall_prediction = algo.getOverallPrediction(pr)
         pos, neu, neg = algo.getPercentagePrediction(pr)
 
-    return render_template('index.html', output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg)
+    return render_template('index.html', isHome=True, output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg)
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about.html', isAbout=True)
 
 
 @app.route("/stats", methods=['GET', 'POST'])
@@ -54,7 +54,7 @@ def stats():
         overall_prediction = algo.getOverallPrediction(pr)
         pos, neu, neg = algo.getPercentagePrediction(pr)
 
-    return render_template('stats.html', output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg, accuracy_score = accuracy_score, img_path=confusion_matrix_path, model_name=model_name)
+    return render_template('stats.html', isStats=True, output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg, accuracy_score = accuracy_score, img_path=confusion_matrix_path, model_name=model_name)
 
 
 if __name__ == "__main__":
