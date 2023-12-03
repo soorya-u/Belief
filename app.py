@@ -1,6 +1,7 @@
 from logic.preprocess import *
 from logic.algorithms import *
 from flask import Flask, render_template, request
+from waitress import serve
 
 
 app = Flask(__name__)
@@ -35,7 +36,7 @@ def about():
 def stats():
 
     tweet = ''
-    model_name=''
+    model_name = ''
     accuracy_score = 0
     confusion_matrix_path = ''
     overall_prediction = ['']
@@ -54,8 +55,9 @@ def stats():
         overall_prediction = algo.getOverallPrediction(pr)
         pos, neu, neg = algo.getPercentagePrediction(pr)
 
-    return render_template('stats.html', isStats=True, output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg, accuracy_score = accuracy_score, img_path=confusion_matrix_path, model_name=model_name)
+    return render_template('stats.html', isStats=True, output=overall_prediction[0], value=tweet, positive=pos, neutral=neu, negative=neg, accuracy_score=accuracy_score, img_path=confusion_matrix_path, model_name=model_name)
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+if __name__ == '__main__':
+    app.run(debug=True, port=7000)
+    # serve(app, host='0.0.0.0', port=7000)
