@@ -82,7 +82,6 @@ class MLAlgorithms:
         return count_vectorizer
 
     def getOverallPrediction(self, test_list: list):
-        print(test_list)
         model = self.model
         count_vectorizer = self.countVectorizer()
 
