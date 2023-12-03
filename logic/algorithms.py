@@ -4,7 +4,7 @@ import pandas as pd
 
 class MLAlgorithms:
 
-    def __init__(self, model_name='Logistic-Regression') -> None:
+    def __init__(self, model_name='Linear-SVC') -> None:
 
         match model_name:
             case 'Ada-Boost-Classifier':
@@ -15,10 +15,6 @@ class MLAlgorithms:
                 self.model = self.bernoulliNB()
                 self.accuracy_score = round(0.7134617641634391, 2)*100
                 self.confusion_matrix = r'./static/img/confusion-matrix/bernoulli-nb.png'
-            case 'Linear-SVC':
-                self.model = self.linearSVC()
-                self.accuracy_score = round(0.9011116141039183, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/linear-svc.png'
             case 'Logistic-Regression':
                 self.model = self.logisticRegression()
                 self.accuracy_score = round(0.8951259996982043, 2)*100
@@ -39,10 +35,14 @@ class MLAlgorithms:
                 self.model = self.ridgeClassifier()
                 self.accuracy_score = round(0.8320507016749661, 2)*100
                 self.confusion_matrix = r'./static/img/confusion-matrix/ridge-classifier.png'
+            case _:  # Linear-SVC
+                self.model = self.linearSVC()
+                self.accuracy_score = round(0.9011116141039183, 2)*100
+                self.confusion_matrix = r'./static/img/confusion-matrix/linear-svc.png'
 
     def adaBoostClassifier(self):
         ada_boost_classifier = joblib.load(
-            self.path+r'/models/AdaBoostClassifier.joblib')
+            r'./logic/models/AdaBoostClassifier.joblib')
         return ada_boost_classifier
 
     def bernoulliNB(self):
