@@ -118,7 +118,7 @@ footer::after {
   font-size: 2rem;
 }
 
-@media (width<600px) {
+@media (width<650px) {
   nav {
     justify-content: center;
   }
