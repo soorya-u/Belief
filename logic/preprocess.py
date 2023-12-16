@@ -1,6 +1,4 @@
-import re, nltk
-from nltk.stem.snowball import SnowballStemmer 
-import numpy as np
+import re
 
 # Data Preprocessing
 
