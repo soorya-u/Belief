@@ -6,4 +6,4 @@ The Machine Learning Model is trained with 200,000+ Publicly available COVID-19 
 
 ### Reference:
 
-1. [COVID Data Set](https://www.kaggle.com/datasets/smid80/coronavirus-covid19-tweets-late-april)
+1. [COVID Data Set](https://www.kaggle.com/datasets/smid80/coronavirus-covid19-tweets-late-april) - _Shane Smith_
