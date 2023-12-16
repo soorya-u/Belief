@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "belief",
-  "includeFiles": ["app.py", "logic/*.py", "logic/models/*"],
   "builds": [
     {
       "src": "app.py",
