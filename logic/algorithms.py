@@ -6,39 +6,38 @@ class MLAlgorithms:
 
     def __init__(self, model_name='Linear-SVC') -> None:
 
-        match model_name:
-            case 'Ada-Boost-Classifier':
-                self.model = self.adaBoostClassifier()
-                self.accuracy_score = round(0.6926546283721476, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/ada-boost-classifier.png'
-            case 'Bernoulli-NB':
-                self.model = self.bernoulliNB()
-                self.accuracy_score = round(0.7134617641634391, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/bernoulli-nb.png'
-            case 'Logistic-Regression':
-                self.model = self.logisticRegression()
-                self.accuracy_score = round(0.8951259996982043, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/logistic-regression.png'
-            case 'Multinomial-NB':
-                self.model = self.multinomialNB()
-                self.accuracy_score = round(0.7085827339335714, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/multinomial-nb.png'
-            case 'Passive-Aggressive-Classifier':
-                self.model = self.passiveAggressiveClassifier()
-                self.accuracy_score = round(0.8682997166473853, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/passive-aggressive-classifier.png'
-            case 'Perceptron':
-                self.model = self.perceptron()
-                self.accuracy_score = round(0.8717368341632714, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/perceptron.png'
-            case 'Ridge-Classifier':
-                self.model = self.ridgeClassifier()
-                self.accuracy_score = round(0.8320507016749661, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/ridge-classifier.png'
-            case _:  # Linear-SVC
-                self.model = self.linearSVC()
-                self.accuracy_score = round(0.9011116141039183, 2)*100
-                self.confusion_matrix = r'./static/img/confusion-matrix/linear-svc.png'
+        if model_name == 'Ada-Boost-Classifier':
+            self.model = self.adaBoostClassifier()
+            self.accuracy_score = round(0.6926546283721476, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/ada-boost-classifier.png'
+        elif model_name == 'Bernoulli-NB':
+            self.model = self.bernoulliNB()
+            self.accuracy_score = round(0.7134617641634391, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/bernoulli-nb.png'
+        elif model_name == 'Logistic-Regression':
+            self.model = self.logisticRegression()
+            self.accuracy_score = round(0.8951259996982043, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/logistic-regression.png'
+        elif model_name == 'Multinomial-NB':
+            self.model = self.multinomialNB()
+            self.accuracy_score = round(0.7085827339335714, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/multinomial-nb.png'
+        elif model_name == 'Passive-Aggressive-Classifier':
+            self.model = self.passiveAggressiveClassifier()
+            self.accuracy_score = round(0.8682997166473853, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/passive-aggressive-classifier.png'
+        elif model_name == 'Perceptron':
+            self.model = self.perceptron()
+            self.accuracy_score = round(0.8717368341632714, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/perceptron.png'
+        elif model_name == 'Ridge-Classifier':
+            self.model = self.ridgeClassifier()
+            self.accuracy_score = round(0.8320507016749661, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/ridge-classifier.png'
+        else:  # Linear-SVC
+            self.model = self.linearSVC()
+            self.accuracy_score = round(0.9011116141039183, 2)*100
+            self.confusion_matrix = r'./static/img/confusion-matrix/linear-svc.png'
 
     def adaBoostClassifier(self):
         ada_boost_classifier = joblib.load(
