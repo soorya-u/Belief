@@ -206,7 +206,7 @@ img[alt="negative"] {
   width: 2rem;
 }
 
-@media (width<600px) {
+@media (max-width:600px) {
   .output {
     width: 95vw;
     flex-direction: column;
@@ -218,21 +218,21 @@ img[alt="negative"] {
   }
 }
 
-@media (width<1080px) {
+@media (max-width:1080px) {
   .output {
     width: 95vw;
     justify-content: space-evenly;
   }
 }
 
-@media (width<800px) {
+@media (max-width:800px) {
   .output {
     width: 95vw;
     justify-content: space-between;
   }
 }
 
-@media (width<450px) {
+@media (max-width:450px) {
   .progress-bar .progress {
     width: 60vw;
   }

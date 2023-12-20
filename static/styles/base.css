@@ -118,7 +118,7 @@ footer::after {
   font-size: 2rem;
 }
 
-@media (width<650px) {
+@media (max-width:650px) {
   nav {
     justify-content: center;
   }
@@ -137,7 +137,7 @@ footer::after {
   }
 }
 
-@media (width<335px) {
+@media (max-width:335px) {
   nav ul {
     gap: 1rem;
   }
@@ -147,7 +147,7 @@ footer::after {
   }
 }
 
-@media (width<360px) {
+@media (max-width:360px) {
   footer .upper {
     flex-direction: column;
     justify-content: center;

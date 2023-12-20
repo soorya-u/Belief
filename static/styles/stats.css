@@ -376,7 +376,7 @@ h3 {
 }
 
 
-@media (width<600px) {
+@media (max-width:600px) {
   .output {
     width: 95vw;
     flex-direction: column;
@@ -388,27 +388,27 @@ h3 {
   }
 }
 
-@media (width<1080px) {
+@media (max-width:1080px) {
   .output {
     width: 95vw;
     justify-content: space-evenly;
   }
 }
 
-@media (width<800px) {
+@media (max-width:800px) {
   .output {
     width: 95vw;
     justify-content: space-between;
   }
 }
 
-@media (width<500px) {
+@media (max-width:500px) {
   .stats img {
     width: 70vw;
   }
 }
 
-@media (width<450px) {
+@media (max-width:450px) {
   .progress-bar .progress {
     width: 60vw;
   }
