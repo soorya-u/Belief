@@ -1,11 +1,17 @@
 import "./styles.css";
+import b_logo from '../../assets/img/logo_b.png'
+import dev_soo from '../../assets/img/devs/soorya.jpg'
+import dev_saa from '../../assets/img/devs/saanvi.jpg'
+import dev_ai from '../../assets/img/devs/aishwarya.jpg'
+import dev_de from '../../assets/img/devs/devi.jpg'
+import dev_pr from '../../assets/img/devs/pratham.jpg'
 
 const About = () => {
   return (
     <>
       <main>
         <section className="logo">
-          <img src="../static/img/logo_b.png" className="logo" alt="logo" />
+          <img src={b_logo} className="logo" alt="logo" />
         </section>
 
         <h1>About our Team</h1>
@@ -29,7 +35,7 @@ const About = () => {
                 <div className="content">
                   <div className="icon">
                     <img
-                      src="../static/img/devs/soorya.jpg"
+                      src={dev_soo}
                       alt="Avatar"
                       className="image"
                     />
@@ -53,7 +59,7 @@ const About = () => {
                 <div className="content">
                   <div className="icon">
                     <img
-                      src="../static/img/devs/saanvi.jpg"
+                      src={dev_saa}
                       alt="Avatar"
                       className="image"
                     />
@@ -77,7 +83,7 @@ const About = () => {
                 <div className="content">
                   <div className="icon">
                     <img
-                      src="../static/img/devs/aishwarya.jpg"
+                      src={dev_ai}
                       alt="Avatar"
                       className="image"
                     />
@@ -101,7 +107,7 @@ const About = () => {
                 <div className="content">
                   <div className="icon">
                     <img
-                      src="../static/img/devs/devi.jpg"
+                      src={dev_de}
                       alt="Avatar"
                       className="image"
                     />
@@ -126,7 +132,7 @@ const About = () => {
                 <div className="content">
                   <div className="icon">
                     <img
-                      src="../static/img/devs/pratham.jpg"
+                      src={dev_pr}
                       alt="Avatar"
                       className="image"
                     />
