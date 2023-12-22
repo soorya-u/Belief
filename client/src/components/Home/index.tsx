@@ -1,16 +1,37 @@
+import { useState } from "react";
+import axios from "axios";
+
+import lobo_b from "../../assets/img/logo_b.png";
+import positive_emoji from "../../assets/img/positive.png";
+import negative_emoji from "../../assets/img/negative.png";
+import neutral_emoji from "../../assets/img/neutral.png";
+
 import "./styles.css";
 
 const Home = () => {
-  const output = null;
-  const positive = null;
-  const neutral = null;
-  const negative = null;
+  const [value, setValue] = useState("");
+  const [response, setResponse] = useState({
+    output: null,
+    positive: null,
+    neutral: null,
+    negative: null,
+  });
+
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    await axios
+      .post("http://127.0.0.1:7000", {
+        tweet: value,
+      })
+      .then((res) => setResponse(res.data));
+    console.log(response);
+  };
 
   return (
     <>
       <main>
         <section className="logo-img">
-          <img src="../static/img/logo_b.png" alt="logo" />
+          <img src={lobo_b} alt="logo" />
         </section>
         <h1>Belief</h1>
         <section className="intro">
@@ -29,13 +50,20 @@ const Home = () => {
 
         <section className="input-home">
           <h2>Enter your Keyword or Tweets:</h2>
-          <form data-place="home" className="search-box-home" action="/" method="post">
+          <form
+            onSubmit={handleSubmit}
+            data-place="home"
+            className="search-box-home"
+            action="/"
+            method="post"
+          >
             <input
               data-place="home"
               type="text"
               name="tweet"
-              value="{{value}}"
+              value={value}
               placeholder="Enter a tweet..."
+              onChange={(e) => setValue(e.target.value)}
             />
             <button type="submit" className="twitter-icon-home">
               <i className="fa fa-twitter"></i>
@@ -45,36 +73,36 @@ const Home = () => {
 
         <section className="output">
           <section className="overall">
-            {output === "Positive" ? (
+            {response.output === "Positive" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/positive.png" alt="positive" />
-                  <h2 style={{ color: "#00ff00" }}>{output}</h2>
+                  <img src={positive_emoji} alt="positive" />
+                  <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
               <></>
             )}
 
-            {output === "Neutral" ? (
+            {response.output === "Neutral" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/neutral.png" alt="neutral" />
-                  <h2 style={{ color: "#fbec5d" }}>{output}</h2>
+                  <img src={neutral_emoji} alt="neutral" />
+                  <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
               <></>
             )}
 
-            {output === "Negative" ? (
+            {response.output === "Negative" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/negative.png" alt="negative" />
-                  <h2 style={{ color: "#ff1201" }}>{output}</h2>
+                  <img src={negative_emoji} alt="negative" />
+                  <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
@@ -82,70 +110,72 @@ const Home = () => {
             )}
           </section>
           <section className="progress-bar">
-            {positive && neutral && negative ? (
+            {response.positive || response.neutral || response.negative ? (
               <>
                 <h2>Keyword Prediction</h2>
                 <table border={0} cellSpacing={7}>
-                  {positive != 0 ? (
-                    <tr>
-                      <td className="progress-title">Positive:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              color: "#000",
-                              backgroundColor: "#00ff00",
-                              width: positive + "%",
-                            }}
-                          >
-                            {positive}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
-                  {neutral != 0 ? (
-                    <tr>
-                      <td className="progress-title">Neutral:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              color: "#000",
-                              backgroundColor: "#fbec5d",
-                              width: neutral + "%",
-                            }}
-                          >
-                            {neutral}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
+                  <tbody>
+                    {response.positive != 0 ? (
+                      <tr>
+                        <td className="progress-title">Positive:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                color: "#000",
+                                backgroundColor: "#00ff00",
+                                width: response.positive + "%",
+                              }}
+                            >
+                              {response.positive}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
+                    {response.neutral != 0 ? (
+                      <tr>
+                        <td className="progress-title">Neutral:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                color: "#000",
+                                backgroundColor: "#fbec5d",
+                                width: response.neutral + "%",
+                              }}
+                            >
+                              {response.neutral}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
 
-                  {negative != 0 ? (
-                    <tr>
-                      <td className="progress-title">Negative:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              backgroundColor: "#ff1201",
-                              width: negative + "%",
-                            }}
-                          >
-                            {negative}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
+                    {response.negative != 0 ? (
+                      <tr>
+                        <td className="progress-title">Negative:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                backgroundColor: "#ff1201",
+                                width: response.negative + "%",
+                              }}
+                            >
+                              {response.negative}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
+                  </tbody>
                 </table>
               </>
             ) : (
