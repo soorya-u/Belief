@@ -1,11 +1,13 @@
 from logic.preprocess import *
 from logic.algorithms import *
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from waitress import serve
 
 
 app = Flask(__name__)
 
+CORS(app)
 
 @app.route("/", methods=['POST'])
 def home():
@@ -24,7 +26,6 @@ def home():
 
     return jsonify({
         'output': overall_prediction[0],
-        'value': tweet,
         'positive': pos,
         'neutral': neu,
         'negative': neg
@@ -60,7 +61,6 @@ def stats():
 
     return jsonify({
         'output': overall_prediction[0],
-        'value': tweet,
         'positive': pos,
         'neutral': neu,
         'negative': neg,
