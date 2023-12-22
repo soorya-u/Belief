@@ -9,7 +9,7 @@ import dev_pr from '../../assets/img/devs/pratham.jpg'
 const About = () => {
   return (
     <>
-      <main>
+      <main className="about">
         <section className="logo">
           <img src={b_logo} className="logo" alt="logo" />
         </section>

@@ -1,4 +1,4 @@
-main {
+main.about {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@ main {
     gap: 1.5rem;
   }
   
-  main h1,
+  main.about h1,
   .input h2 {
     font-family: "Chakra Petch", sans-serif;
     color: #1da1f2;
@@ -15,8 +15,8 @@ main {
     font-size: 4rem;
   }
   
-  main::before,
-  main::after {
+  main.about::before,
+  main.about::after {
     content: "";
   }
   
@@ -161,7 +161,7 @@ main {
     color: #fff;
   }
   
-  .icon img {
+  .icon img.image {
     width: 12rem;
     overflow: hidden;
     border: 2px solid #1da1f2;
