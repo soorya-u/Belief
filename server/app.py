@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 CORS(app)
 
+
 @app.route("/", methods=['POST'])
 def home():
 
@@ -35,15 +36,6 @@ def home():
 @app.route("/stats", methods=['GET', 'POST'])
 def stats():
 
-    tweet = ''
-    model_name = ''
-    accuracy_score = 0
-    confusion_matrix_path = ''
-    overall_prediction = ['']
-    pos = ''
-    neu = ''
-    neg = ''
-
     if request.json['tweet'] == '':
         return jsonify({
             'error': 'Empty String'
@@ -55,7 +47,7 @@ def stats():
     pr = pre.preProcess()
     algo = MLAlgorithms(model_name=model_name)
     accuracy_score = algo.accuracy_score
-    confusion_matrix_path = algo.confusion_matrix
+    confusion_matrix_path = algo.confusion_matrix[1:]
     overall_prediction = algo.getOverallPrediction(pr)
     pos, neu, neg = algo.getPercentagePrediction(pr)
 
