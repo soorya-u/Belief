@@ -1,5 +1,11 @@
+import { useState } from "react";
+import axios from "axios";
+
+import b_logo from "../../assets/img/logo_b.png";
+import positive_emoji from "../../assets/img/positive.png";
+import negative_emoji from "../../assets/img/negative.png";
+import neutral_emoji from "../../assets/img/neutral.png";
 import "./styles.css";
-import b_logo from '../../assets/img/logo_b.png'
 
 const Stats = () => {
   function handleClick() {
@@ -7,12 +13,27 @@ const Stats = () => {
     detailElement?.removeAttribute("open");
   }
 
-  const output = undefined;
-  const positive = undefined;
-  const negative = undefined;
-  const neutral = undefined;
-  const model_name = undefined;
-  const accuracy_score = undefined;
+  const [value, setValue] = useState("");
+  const [modelName, setModelName] = useState("Select a Model...");
+  const [response, setResponse] = useState({
+    accuracy_score: null,
+    img_path: undefined,
+    model_name: null,
+    negative: null,
+    neutral: null,
+    output: null,
+    positive: null,
+  });
+
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    await axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/stats`, {
+        tweet: value,
+        model_name: modelName,
+      })
+      .then((res) => setResponse(res.data));
+  };
 
   return (
     <>
@@ -23,7 +44,7 @@ const Stats = () => {
 
         <h1>Stats for Nerds</h1>
 
-        <form data-place="stats" action="/stats" method="post">
+        <form data-place="stats" onSubmit={handleSubmit}>
           <section className="input">
             <h2>Enter your Keyword or Tweets:</h2>
             <div className="search-box-stats">
@@ -31,8 +52,9 @@ const Stats = () => {
                 className="tweet-box"
                 type="text"
                 name="tweet"
-                value="{{value}}"
+                value={value}
                 placeholder="Enter a tweet..."
+                onChange={(e) => setValue(e.target.value)}
               />
               <button type="submit" className="twitter-icon">
                 <i className="fa fa-twitter"></i>
@@ -49,70 +71,79 @@ const Stats = () => {
                   value=""
                   name="model-name"
                   id="default"
-                  title={model_name ?? 'Select a Model...'}
+                  title={modelName}
                   checked
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Ada-Boost-classNameifier"
+                  onClick={() => setModelName("Ada-Boost-Classifier")}
                   id="item1"
-                  title="Ada Boost classNameifier"
+                  title="Ada Boost Classifier"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Bernoulli-NB"
+                  onClick={() => setModelName("Bernoulli-NB")}
                   id="item2"
                   title="Bernoulli NB"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Linear-SVC"
+                  onClick={() => setModelName("Linear-SVC")}
                   id="item3"
                   title="Linear SVC"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Logistic-Regression"
+                  onClick={() => setModelName("Logistic-Regression")}
                   id="item4"
                   title="Logistic Regression"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Multinomial-NB"
+                  onClick={() => setModelName("Multinomial-NB")}
                   id="item5"
                   title="Multinomial NB"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Passive-Aggressive-classNameifier"
+                  onClick={() => setModelName("Passive-Aggressive-Classifier")}
                   id="item6"
-                  title="Passive Aggressive classNameifier"
+                  title="Passive Aggressive Classifier"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Perceptron"
+                  onClick={() => setModelName("Perceptron")}
                   id="item7"
                   title="Perceptron"
+                  readOnly
                 />
                 <input
                   type="radio"
                   name="model-name"
-                  value="Ridge-classNameifier"
+                  onClick={() => setModelName("Ridge-Classifier")}
                   id="item8"
-                  title="Ridge classNameifier"
+                  title="Ridge Classifier"
+                  readOnly
                 />
               </summary>
               <ul className="list select">
                 <li className="option">
                   <label onClick={handleClick} htmlFor="item1">
-                    Ada Boost classNameifier
+                    Ada Boost Classifier
                   </label>
                 </li>
                 <li className="option">
@@ -137,7 +168,7 @@ const Stats = () => {
                 </li>
                 <li className="option">
                   <label onClick={handleClick} htmlFor="item6">
-                    Passive Aggressive classNameifier
+                    Passive Aggressive Classifier
                   </label>
                 </li>
                 <li className="option">
@@ -147,7 +178,7 @@ const Stats = () => {
                 </li>
                 <li className="option">
                   <label onClick={handleClick} htmlFor="item8">
-                    Ridge classNameifier
+                    Ridge Classifier
                   </label>
                 </li>
               </ul>
@@ -156,34 +187,34 @@ const Stats = () => {
         </form>
         <section className="output">
           <section className="overall">
-            {output === "Positive" ? (
+            {response.output === "Positive" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/positive.png" alt="positive" />
-                  <h2 style={{ color: "#00ff00" }}>{output}</h2>
+                  <img src={positive_emoji} alt="positive" />
+                  <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
               <></>
             )}
-            {output === "Neutral" ? (
+            {response.output === "Neutral" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/neutral.png" alt="neutral" />
-                  <h2 style={{ color: "#fbec5d" }}>{output}</h2>
+                  <img src={neutral_emoji} alt="neutral" />
+                  <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
               <></>
             )}
-            {output === "Negative" ? (
+            {response.output === "Negative" ? (
               <>
                 <h2>Overall Prediction</h2>
                 <div>
-                  <img src="../static/img/negative.png" alt="negative" />
-                  <h2 style={{ color: "#ff1201" }}>{output}</h2>
+                  <img src={negative_emoji} alt="negative" />
+                  <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
                 </div>
               </>
             ) : (
@@ -191,70 +222,72 @@ const Stats = () => {
             )}
           </section>
           <section className="progress-bar">
-            {positive && neutral && negative ? (
+            {response.positive || response.neutral || response.negative ? (
               <>
                 <h2>Keyword Prediction</h2>
                 <table border={0} cellPadding={7}>
-                  {positive ? (
-                    <tr>
-                      <td className="progress-title">Positive:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              color: "#000",
-                              backgroundColor: "#00ff00",
-                              width: positive + "%",
-                            }}
-                          >
-                            {positive}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
+                  <tbody>
+                    {response.positive ? (
+                      <tr>
+                        <td className="progress-title">Positive:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                color: "#000",
+                                backgroundColor: "#00ff00",
+                                width: response.positive + "%",
+                              }}
+                            >
+                              {response.positive}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
 
-                  {neutral ? (
-                    <tr>
-                      <td className="progress-title">Neutral:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              color: "#000",
-                              backgroundColor: "#fbec5d",
-                              width: neutral + "%",
-                            }}
-                          >
-                            {neutral}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
-                  {negative ? (
-                    <tr>
-                      <td className="progress-title">Negative:</td>
-                      <td>
-                        <div className="progress">
-                          <span
-                            style={{
-                              backgroundColor: "#ff1201",
-                              width: negative + "%",
-                            }}
-                          >
-                            {negative}%
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ) : (
-                    <></>
-                  )}
+                    {response.neutral ? (
+                      <tr>
+                        <td className="progress-title">Neutral:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                color: "#000",
+                                backgroundColor: "#fbec5d",
+                                width: response.neutral + "%",
+                              }}
+                            >
+                              {response.neutral}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
+                    {response.negative ? (
+                      <tr>
+                        <td className="progress-title">Negative:</td>
+                        <td>
+                          <div className="progress">
+                            <span
+                              style={{
+                                backgroundColor: "#ff1201",
+                                width: response.negative + "%",
+                              }}
+                            >
+                              {response.negative}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ) : (
+                      <></>
+                    )}
+                  </tbody>
                 </table>
               </>
             ) : (
@@ -263,15 +296,18 @@ const Stats = () => {
           </section>
         </section>
         <section className="stats">
-          {model_name ? (
+          {response.model_name ? (
             <>
               <h2>Selected Model</h2>
-              <h2 className="model-name">{model_name}</h2>
+              <h2 className="model-name">{modelName}</h2>
               <h3>
-                Accuracy: <span>{accuracy_score}%</span>
+                Accuracy: <span>{response.accuracy_score}%</span>
               </h3>
               <h3>Confusion Matrix:</h3>
-              <img src="{{img_path}}" alt="confusion-matrix" />
+              <img
+                src={import.meta.env.VITE_BACKEND_URL + response.img_path}
+                alt="confusion-matrix"
+              />
             </>
           ) : (
             <></>

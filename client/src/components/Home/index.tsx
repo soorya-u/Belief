@@ -20,11 +20,10 @@ const Home = () => {
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     await axios
-      .post("http://127.0.0.1:7000", {
+      .post(import.meta.env.VITE_BACKEND_URL, {
         tweet: value,
       })
       .then((res) => setResponse(res.data));
-    console.log(response);
   };
 
   return (
@@ -41,9 +40,9 @@ const Home = () => {
             Positive, Negative or Neutral. <br />
             <br />
             Kindly note that, The Machine Learning Model is trained with
-            <span>200,000+</span> Publicly available
-            <span>COVID-19 Case Study On Twitter Dataset</span> so the Keywords
-            or Tweets must be related on COVID-19. <br />
+            <span> 200,000+ </span> Publicly available
+            <span> COVID-19 Case Study On Twitter Dataset </span> so the
+            Keywords or Tweets must be related on COVID-19. <br />
             <br />
           </p>
         </section>
@@ -54,8 +53,6 @@ const Home = () => {
             onSubmit={handleSubmit}
             data-place="home"
             className="search-box-home"
-            action="/"
-            method="post"
           >
             <input
               data-place="home"
