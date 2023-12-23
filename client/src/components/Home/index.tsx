@@ -23,7 +23,7 @@ const Home = () => {
     setLoading(true);
     event.preventDefault();
     await axios
-      .post(import.meta.env.VITE_BACKEND_URL, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1`, {
         tweet: value,
       })
       .then((res) => setResponse(res.data));
@@ -75,7 +75,7 @@ const Home = () => {
         {loading ? (
           <>
             <section className="loading-home">
-              <ReactLoading type="spinningBubbles" color="#1da1f2"/>
+              <ReactLoading type="spinningBubbles" color="#1da1f2" />
             </section>
           </>
         ) : (

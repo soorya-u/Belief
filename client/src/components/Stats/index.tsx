@@ -31,7 +31,7 @@ const Stats = () => {
     setLoading(true);
     event.preventDefault();
     await axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/stats`, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/stats`, {
         tweet: value,
         model_name: modelName,
       })

@@ -21,7 +21,7 @@ client = pymongo.MongoClient(DATABASE_URL)
 dataBase = client['Belief']
 
 
-@app.route("/", methods=['POST'])
+@app.route("/api/v1/", methods=['POST'])
 def home():
 
     if request.json['tweet'] == '':
@@ -54,7 +54,7 @@ def home():
     return response
 
 
-@app.route("/stats", methods=['POST'])
+@app.route("/api/v1/stats", methods=['POST'])
 def stats():
 
     if request.json['tweet'] == '':
