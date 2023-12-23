@@ -29,7 +29,7 @@ def home():
             'error': 'Empty String'
         })
 
-    collection = dataBase['main-algorithms']
+    collection = dataBase['main-algorithm']
 
     tweet = request.json['tweet']
 

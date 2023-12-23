@@ -312,7 +312,7 @@ const Stats = () => {
               {response.model_name ? (
                 <>
                   <h2>Selected Model</h2>
-                  <h2 className="model-name">{modelName}</h2>
+                  <h2 className="model-name">{response.model_name}</h2>
                   <h3>
                     Accuracy: <span>{response.accuracy_score}%</span>
                   </h3>
