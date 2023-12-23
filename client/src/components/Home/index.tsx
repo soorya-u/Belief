@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import ReactLoading from "react-loading";
 
 import lobo_b from "../../assets/img/logo_b.png";
 import positive_emoji from "../../assets/img/positive.png";
@@ -10,6 +11,7 @@ import "./styles.css";
 
 const Home = () => {
   const [value, setValue] = useState("");
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState({
     output: null,
     positive: null,
@@ -18,12 +20,14 @@ const Home = () => {
   });
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
+    setLoading(true);
     event.preventDefault();
     await axios
       .post(import.meta.env.VITE_BACKEND_URL, {
         tweet: value,
       })
       .then((res) => setResponse(res.data));
+    setLoading(false);
   };
 
   return (
@@ -68,118 +72,128 @@ const Home = () => {
           </form>
         </section>
 
-        <section className="output">
-          <section className="overall">
-            {response.output === "Positive" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={positive_emoji} alt="positive" />
-                  <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
+        {loading ? (
+          <>
+            <section className="loading-home">
+              <ReactLoading type="spinningBubbles" color="#1da1f2"/>
+            </section>
+          </>
+        ) : (
+          <>
+            <section className="output">
+              <section className="overall">
+                {response.output === "Positive" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={positive_emoji} alt="positive" />
+                      <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
 
-            {response.output === "Neutral" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={neutral_emoji} alt="neutral" />
-                  <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
+                {response.output === "Neutral" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={neutral_emoji} alt="neutral" />
+                      <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
 
-            {response.output === "Negative" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={negative_emoji} alt="negative" />
-                  <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-          </section>
-          <section className="progress-bar">
-            {response.positive || response.neutral || response.negative ? (
-              <>
-                <h2>Keyword Prediction</h2>
-                <table border={0} cellSpacing={7}>
-                  <tbody>
-                    {response.positive != 0 ? (
-                      <tr>
-                        <td className="progress-title">Positive:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                color: "#000",
-                                backgroundColor: "#00ff00",
-                                width: response.positive + "%",
-                              }}
-                            >
-                              {response.positive}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
-                    {response.neutral != 0 ? (
-                      <tr>
-                        <td className="progress-title">Neutral:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                color: "#000",
-                                backgroundColor: "#fbec5d",
-                                width: response.neutral + "%",
-                              }}
-                            >
-                              {response.neutral}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
+                {response.output === "Negative" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={negative_emoji} alt="negative" />
+                      <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </section>
+              <section className="progress-bar">
+                {response.positive || response.neutral || response.negative ? (
+                  <>
+                    <h2>Keyword Prediction</h2>
+                    <table border={0} cellSpacing={7}>
+                      <tbody>
+                        {response.positive != 0 ? (
+                          <tr>
+                            <td className="progress-title">Positive:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    color: "#000",
+                                    backgroundColor: "#00ff00",
+                                    width: response.positive + "%",
+                                  }}
+                                >
+                                  {response.positive}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
+                        {response.neutral != 0 ? (
+                          <tr>
+                            <td className="progress-title">Neutral:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    color: "#000",
+                                    backgroundColor: "#fbec5d",
+                                    width: response.neutral + "%",
+                                  }}
+                                >
+                                  {response.neutral}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
 
-                    {response.negative != 0 ? (
-                      <tr>
-                        <td className="progress-title">Negative:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                backgroundColor: "#ff1201",
-                                width: response.negative + "%",
-                              }}
-                            >
-                              {response.negative}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
-                  </tbody>
-                </table>
-              </>
-            ) : (
-              <></>
-            )}
-          </section>
-        </section>
+                        {response.negative != 0 ? (
+                          <tr>
+                            <td className="progress-title">Negative:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    backgroundColor: "#ff1201",
+                                    width: response.negative + "%",
+                                  }}
+                                >
+                                  {response.negative}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
+                      </tbody>
+                    </table>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </section>
+            </section>
+          </>
+        )}
       </main>
     </>
   );

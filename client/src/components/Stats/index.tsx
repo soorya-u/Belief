@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import ReactLoading from "react-loading";
 
 import b_logo from "../../assets/img/logo_b.png";
 import positive_emoji from "../../assets/img/positive.png";
@@ -14,6 +15,7 @@ const Stats = () => {
   }
 
   const [value, setValue] = useState("");
+  const [loading, setLoading] = useState(false);
   const [modelName, setModelName] = useState("Select a Model...");
   const [response, setResponse] = useState({
     accuracy_score: null,
@@ -26,6 +28,7 @@ const Stats = () => {
   });
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
+    setLoading(true);
     event.preventDefault();
     await axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/stats`, {
@@ -33,6 +36,7 @@ const Stats = () => {
         model_name: modelName,
       })
       .then((res) => setResponse(res.data));
+    setLoading(false);
   };
 
   return (
@@ -185,134 +189,145 @@ const Stats = () => {
             </details>
           </section>
         </form>
-        <section className="output">
-          <section className="overall">
-            {response.output === "Positive" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={positive_emoji} alt="positive" />
-                  <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {response.output === "Neutral" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={neutral_emoji} alt="neutral" />
-                  <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-            {response.output === "Negative" ? (
-              <>
-                <h2>Overall Prediction</h2>
-                <div>
-                  <img src={negative_emoji} alt="negative" />
-                  <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
-                </div>
-              </>
-            ) : (
-              <></>
-            )}
-          </section>
-          <section className="progress-bar">
-            {response.positive || response.neutral || response.negative ? (
-              <>
-                <h2>Keyword Prediction</h2>
-                <table border={0} cellPadding={7}>
-                  <tbody>
-                    {response.positive ? (
-                      <tr>
-                        <td className="progress-title">Positive:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                color: "#000",
-                                backgroundColor: "#00ff00",
-                                width: response.positive + "%",
-                              }}
-                            >
-                              {response.positive}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
 
-                    {response.neutral ? (
-                      <tr>
-                        <td className="progress-title">Neutral:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                color: "#000",
-                                backgroundColor: "#fbec5d",
-                                width: response.neutral + "%",
-                              }}
-                            >
-                              {response.neutral}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
-                    {response.negative ? (
-                      <tr>
-                        <td className="progress-title">Negative:</td>
-                        <td>
-                          <div className="progress">
-                            <span
-                              style={{
-                                backgroundColor: "#ff1201",
-                                width: response.negative + "%",
-                              }}
-                            >
-                              {response.negative}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ) : (
-                      <></>
-                    )}
-                  </tbody>
-                </table>
-              </>
-            ) : (
-              <></>
-            )}
-          </section>
-        </section>
-        <section className="stats">
-          {response.model_name ? (
-            <>
-              <h2>Selected Model</h2>
-              <h2 className="model-name">{modelName}</h2>
-              <h3>
-                Accuracy: <span>{response.accuracy_score}%</span>
-              </h3>
-              <h3>Confusion Matrix:</h3>
-              <img
-                src={import.meta.env.VITE_BACKEND_URL + response.img_path}
-                alt="confusion-matrix"
-              />
-            </>
-          ) : (
-            <></>
-          )}
-        </section>
+        {loading ? (
+          <>
+            <section className="loading-stats">
+              <ReactLoading type="spinningBubbles" color="#1da1f2" />
+            </section>
+          </>
+        ) : (
+          <>
+            <section className="output">
+              <section className="overall">
+                {response.output === "Positive" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={positive_emoji} alt="positive" />
+                      <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {response.output === "Neutral" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={neutral_emoji} alt="neutral" />
+                      <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {response.output === "Negative" ? (
+                  <>
+                    <h2>Overall Prediction</h2>
+                    <div>
+                      <img src={negative_emoji} alt="negative" />
+                      <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </section>
+              <section className="progress-bar">
+                {response.positive || response.neutral || response.negative ? (
+                  <>
+                    <h2>Keyword Prediction</h2>
+                    <table border={0} cellPadding={7}>
+                      <tbody>
+                        {response.positive ? (
+                          <tr>
+                            <td className="progress-title">Positive:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    color: "#000",
+                                    backgroundColor: "#00ff00",
+                                    width: response.positive + "%",
+                                  }}
+                                >
+                                  {response.positive}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
+
+                        {response.neutral ? (
+                          <tr>
+                            <td className="progress-title">Neutral:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    color: "#000",
+                                    backgroundColor: "#fbec5d",
+                                    width: response.neutral + "%",
+                                  }}
+                                >
+                                  {response.neutral}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
+                        {response.negative ? (
+                          <tr>
+                            <td className="progress-title">Negative:</td>
+                            <td>
+                              <div className="progress">
+                                <span
+                                  style={{
+                                    backgroundColor: "#ff1201",
+                                    width: response.negative + "%",
+                                  }}
+                                >
+                                  {response.negative}%
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ) : (
+                          <></>
+                        )}
+                      </tbody>
+                    </table>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </section>
+            </section>
+            <section className="stats">
+              {response.model_name ? (
+                <>
+                  <h2>Selected Model</h2>
+                  <h2 className="model-name">{modelName}</h2>
+                  <h3>
+                    Accuracy: <span>{response.accuracy_score}%</span>
+                  </h3>
+                  <h3>Confusion Matrix:</h3>
+                  <img
+                    src={import.meta.env.VITE_BACKEND_URL + response.img_path}
+                    alt="confusion-matrix"
+                  />
+                </>
+              ) : (
+                <></>
+              )}
+            </section>
+          </>
+        )}
       </main>
     </>
   );
