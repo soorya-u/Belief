@@ -54,7 +54,7 @@ def home():
     return response
 
 
-@app.route("/stats", methods=['GET', 'POST'])
+@app.route("/stats", methods=['POST'])
 def stats():
 
     if request.json['tweet'] == '':
