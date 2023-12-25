@@ -30,7 +30,6 @@ class Database:
             'os': osMatch.group(0) if osMatch else 'Unknown OS',
             'browser': browserMatch.group(0) if browserMatch else 'Unknown Browser',
             'platform': platform,
-            'ipAddress': request.remote_addr or 'Unknown IP Adress',
             'requestDetails': req_id
         }
 
