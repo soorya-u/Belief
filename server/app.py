@@ -18,7 +18,9 @@ from logic.algorithms import *
 from database.mongo import *
 
 # Environment Files
-load_dotenv()
+if os.getenv("DATABASE_URL")==None:
+    load_dotenv()
+
 DATABASE_URL = os.getenv("DATABASE_URL")
 PORT = os.getenv("PORT")
 
@@ -118,4 +120,4 @@ def stats():
 
 if __name__ == '__main__':
     # serve(app, host='0.0.0.0', port=PORT)  # For Production
-    app.run(debug=True, port=PORT)  # For Development
+    app.run(debug=True, port=7000)  # For Development
