@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Maven Pro", sans-serif;
+}
+
+body {
+  background-color: #000;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #000000ad;
+  backdrop-filter: blur(5px);
+  z-index: 3;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav img {
+  width: 10rem;
+  filter: invert(100%);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 3rem;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  font-size: 2rem;
+  font-family: "Prompt", sans-serif;
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+footer .upper {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  align-items: start;
+  border-top: 3px solid #202630;
+  padding: 0.5rem 0;
+  position: sticky;
+}
+
+footer::before,
+footer::after {
+  content: "";
+}
+
+.connect,
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.connect h2,
+.products h2 {
+  font-size: 1.5rem;
+  font-family: "Chakra Petch", sans-serif;
+  color: #1da1f2;
+}
+
+.products h4 {
+  align-self: flex-start;
+}
+.products h4 a {
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-icons a i {
+  font-size: 2rem;
+}
+
+@media (max-width:650px) {
+  nav {
+    justify-content: center;
+  }
+
+  nav img {
+    display: none;
+  }
+
+  nav ul {
+    gap: 2rem;
+  }
+
+  nav ul::before,
+  ul::after {
+    content: "";
+  }
+}
+
+@media (max-width:335px) {
+  nav ul {
+    gap: 1rem;
+  }
+
+  nav ul li a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:360px) {
+  footer .upper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .products, .connect {
+    gap: 0.5rem;
+  }
+
+  .products h4 {
+    align-self: center;
+  }
+}

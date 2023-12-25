@@ -1,7 +1,5 @@
 extras
 **\__pycache__
 env
+.env
 .vercel
-logic\core
-README.md
-.git
