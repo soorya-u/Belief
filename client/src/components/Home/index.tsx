@@ -23,7 +23,7 @@ const Home = () => {
     setLoading(true);
     event.preventDefault();
     await axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1`, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/main`, {
         tweet: value,
       })
       .then((res) => setResponse(res.data));
