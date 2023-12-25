@@ -127,6 +127,7 @@ const About = () => {
             </div>
 
             {/* Dev 5 */}
+            {/*
             <div className="card">
               <div className="slide slide1">
                 <div className="content">
@@ -149,6 +150,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
+             */}
             </div>
           </div>
         </section>
