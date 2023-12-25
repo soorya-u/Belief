@@ -1,4 +1,6 @@
+import re
 from flask import request
+
 
 class Database:
 
@@ -8,12 +10,23 @@ class Database:
 
     def handleLogs(self, req_id):
 
+        osRegex = r'(Windows|Macintosh|iPhone|iPad|Android|Linux)\b'
+        browserRegex = r'(Chrome|Firefox|Safari|Edge|MSIE|Trident)\b'
+
+        userAgent = request.headers.get('User-Agent')
+
+        osMatch = re.search(osRegex, userAgent, re.I)
+        browserMatch = re.search(browserRegex, userAgent, re.I)
+
         logData = {
             'origin': request.headers.get('Origin'),
             'path': request.path,
             'method': request.method,
-            'platform': request.headers.get('sec-ch-ua-platform')[1:-1],
             'isMobile': bool(int(request.headers.get('sec-ch-ua-mobile', 0)[1:])),
+            'OS': osMatch.group(0) if osMatch else 'Unknown OS',
+            'browser': browserMatch.group(0) if browserMatch else 'Unknown Browser',
+            'platform': request.headers.get('sec-ch-ua-platform')[1:-1] or 'Unknown Platform',
+            'ipAddress': request.remote_addr or 'Unknown IP Adress',
             'requestDetails': req_id
         }
 
