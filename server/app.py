@@ -119,5 +119,5 @@ def stats():
 
 
 if __name__ == '__main__':
-    # serve(app, host='0.0.0.0', port=PORT)  # For Production
-    app.run(debug=True, port=7000)  # For Development
+    serve(app, host='0.0.0.0', port=PORT)  # For Production
+    # app.run(debug=True, port=PORT)  # For Development
