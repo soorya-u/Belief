@@ -18,13 +18,18 @@ class Database:
         osMatch = re.search(osRegex, userAgent, re.I)
         browserMatch = re.search(browserRegex, userAgent, re.I)
 
+        try:
+            platform = request.headers.get('sec-ch-ua-platform')[1:-1]
+        except Exception as e:
+            platform = 'Unknown Platform'
+
         logData = {
             'origin': request.headers.get('Origin'),
             'path': request.path,
             'method': request.method,
             'os': osMatch.group(0) if osMatch else 'Unknown OS',
             'browser': browserMatch.group(0) if browserMatch else 'Unknown Browser',
-            'platform': request.headers.get('sec-ch-ua-platform')[1:-1] or 'Unknown Platform',
+            'platform': platform,
             'ipAddress': request.remote_addr or 'Unknown IP Adress',
             'requestDetails': req_id
         }
