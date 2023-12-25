@@ -149,9 +149,9 @@ const About = () => {
                     Department of Artificial Intelligence & Machine Learning
                   </p>
                 </div>
-              </div>
-             */}
+              </div>    
             </div>
+            */}
           </div>
         </section>
       </main>
