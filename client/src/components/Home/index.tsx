@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
-import lobo_b from "../../assets/img/logo_b.png";
+// import lobo_b from "../../assets/img/logo_b.png";
+import logo from "../../assets/img/logo.png";
 import positive_emoji from "../../assets/img/positive.png";
 import negative_emoji from "../../assets/img/negative.png";
 import neutral_emoji from "../../assets/img/neutral.png";
@@ -34,7 +35,7 @@ const Home = () => {
     <>
       <main>
         <section className="logo-img">
-          <img src={lobo_b} alt="logo" />
+          <img src={logo} alt="logo" />
         </section>
         <h1>Belief</h1>
         <section className="intro">

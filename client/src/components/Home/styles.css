@@ -29,8 +29,7 @@ main {
   }
   
   .logo-img img {
-    width: 10rem;
-    filter: invert(100%);
+    width: 8.5rem;
   }
   
   .intro p {

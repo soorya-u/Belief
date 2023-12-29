@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
-import b_logo from "../../assets/img/logo_b.png";
+import logo from "../../assets/img/logo.png";
 import positive_emoji from "../../assets/img/positive.png";
 import negative_emoji from "../../assets/img/negative.png";
 import neutral_emoji from "../../assets/img/neutral.png";
@@ -43,7 +43,7 @@ const Stats = () => {
     <>
       <main className="about">
         <section className="logo">
-          <img src={b_logo} className="logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </section>
 
         <h1>Stats for Nerds</h1>
