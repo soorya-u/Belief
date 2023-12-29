@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
@@ -9,10 +9,7 @@ import neutral_emoji from "../../assets/img/neutral.png";
 import "./styles.css";
 
 const Stats = () => {
-  function handleClick() {
-    const detailElement = document.getElementById("detail-element");
-    detailElement?.removeAttribute("open");
-  }
+  const detailElement = useRef<HTMLDetailsElement>(null);
 
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,6 +23,10 @@ const Stats = () => {
     output: null,
     positive: null,
   });
+
+  function handleClick() {
+    detailElement.current?.removeAttribute("open");
+  }
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     setLoading(true);
@@ -68,7 +69,11 @@ const Stats = () => {
 
           <section className="input">
             <h2>Select any of Our Trained Model:</h2>
-            <details id="detail-element" className="custom-select">
+            <details
+              ref={detailElement}
+              id="detail-element"
+              className="custom-select"
+            >
               <summary className="radios">
                 <input
                   type="radio"
