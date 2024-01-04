@@ -13,12 +13,10 @@ from flask_cors import CORS
 from waitress import serve
 
 # Defined Modules
-from logic.preprocess import *
-from logic.algorithms import *
-from database.mongo import *
+from logic import Database, MLAlgorithms, PreProcessor
 
 # Environment Files
-if os.getenv("DATABASE_URL")==None:
+if os.getenv("DATABASE_URL") == None:
     load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")

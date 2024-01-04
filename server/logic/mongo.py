@@ -1,5 +1,7 @@
 import re
 from flask import request
+from bson.timestamp import Timestamp
+import datetime as dt
 
 
 class Database:
@@ -30,7 +32,8 @@ class Database:
             'os': osMatch.group(0) if osMatch else 'Unknown OS',
             'browser': browserMatch.group(0) if browserMatch else 'Unknown Browser',
             'platform': platform,
-            'requestDetails': req_id
+            'requestDetails': req_id,
+            'timeStamp': Timestamp(int(dt.datetime.today().timestamp()), 1)
         }
 
         collection = self.dataBase['logs']
