@@ -61,7 +61,10 @@ const Stats = () => {
                 placeholder="Enter a tweet..."
                 onChange={(e) => setValue(e.target.value)}
               />
-              <button type="submit" className="twitter-icon">
+              <button
+                type="submit"
+                className="bg-[#1da1f2] text-center border-none rounded-full twitter-icon"
+              >
                 <i className="fa fa-twitter"></i>
               </button>
             </div>
