@@ -41,43 +41,43 @@ class MLAlgorithms:
 
     def adaBoostClassifier(self):
         ada_boost_classifier = joblib.load(
-            r'./logic/models/AdaBoostClassifier.joblib')
+            r'./services/models/AdaBoostClassifier.joblib')
         return ada_boost_classifier
 
     def bernoulliNB(self):
-        bernoulli_nb = joblib.load(r'./logic/models/BernoulliNB.joblib')
+        bernoulli_nb = joblib.load(r'./services/models/BernoulliNB.joblib')
         return bernoulli_nb
 
     def linearSVC(self):
-        linear_svc = joblib.load(r'./logic/models/LinearSVC.joblib')
+        linear_svc = joblib.load(r'./services/models/LinearSVC.joblib')
         return linear_svc
 
     def logisticRegression(self):
         logistic_regression = joblib.load(
-            r'./logic/models/LogisticRegression.joblib')
+            r'./services/models/LogisticRegression.joblib')
         return logistic_regression
 
     def multinomialNB(self):
-        multinomial_nb = joblib.load(r'./logic/models/MultinomialNB.joblib')
+        multinomial_nb = joblib.load(r'./services/models/MultinomialNB.joblib')
         return multinomial_nb
 
     def passiveAggressiveClassifier(self):
         passive_aggressive_classifier = joblib.load(
-            r'./logic/models/PassiveAggressiveClassifier.joblib')
+            r'./services/models/PassiveAggressiveClassifier.joblib')
         return passive_aggressive_classifier
 
     def perceptron(self):
-        perceptron = joblib.load(r'./logic/models/Perceptron.joblib')
+        perceptron = joblib.load(r'./services/models/Perceptron.joblib')
         return perceptron
 
     def ridgeClassifier(self):
         ridge_classifier = joblib.load(
-            r'./logic/models/RidgeClassifier.joblib')
+            r'./services/models/RidgeClassifier.joblib')
         return ridge_classifier
 
     def countVectorizer(self):
         count_vectorizer = joblib.load(
-            r'./logic/models/CountVectorizer.joblib')
+            r'./services/models/CountVectorizer.joblib')
         return count_vectorizer
 
     def getOverallPrediction(self, test_list: list):
