@@ -13,7 +13,7 @@ from flask_cors import CORS
 from waitress import serve
 
 # Defined Modules
-from logic import Database, MLAlgorithms, PreProcessor
+from services import Database, MLAlgorithms, PreProcessor
 
 # Environment Files
 if os.getenv("DATABASE_URL") == None:
@@ -114,6 +114,13 @@ def stats():
     database.handleDocumentCreation(payload, tweet, isStats=True)
 
     return response
+
+
+@app.route("/api/v1/wake")
+def wake():
+    return jsonify({
+        'wakeStatus': True
+    })
 
 
 if __name__ == '__main__':
