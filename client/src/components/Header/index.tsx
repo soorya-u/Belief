@@ -5,24 +5,52 @@ import "./styles.css";
 const Header = () => {
   return (
     <>
-      <header>
-        <nav>
+      <header className="sticky top-0 bg-[#000000ad] backdrop-blur-[5px] z-[3]">
+        <nav className="flex justify-center items-center py-4 px-8 sm:justify-between">
           <a href="https://github.com/soorya-u/Sentiment-Analysis">
-            <img className="logo" src={logo} alt="logo" />
+            <img
+              className="w-[10rem] invert hidden sm:block"
+              src={logo}
+              alt="logo"
+            />
           </a>
-          <ul>
-            <li>
-              <NavLink to="/" end>
+          <ul className="list-none flex gap-4 md:gap-12 md:px-0 sm:gap-8 sm:px-8">
+            <li className="inline">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "2xs:text-[2rem] font-['Prompt'] text-[#1da1f2] no-underline text-[1.5rem]"
+                    : "2xs:text-[2rem] font-['Prompt']no-underline text-white text-[1.5rem]"
+                }
+                to="/"
+                end
+              >
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/about" end>
+            <li className="inline">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "2xs:text-[2rem] font-['Prompt'] text-[#1da1f2] no-underline text-[1.5rem]"
+                    : "2xs:text-[2rem] font-['Prompt']no-underline text-white text-[1.5rem]"
+                }
+                to="/about"
+                end
+              >
                 About
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/stats" end>
+            <li className="inline">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "2xs:text-[2rem] font-['Prompt'] text-[#1da1f2] no-underline text-[1.5rem]"
+                    : "2xs:text-[2rem] font-['Prompt']no-underline text-white text-[1.5rem]"
+                }
+                to="/stats"
+                end
+              >
                 Stats
               </NavLink>
             </li>

@@ -9,12 +9,12 @@ import dev_pr from "../../assets/img/devs/pratham.jpg";
 const About = () => {
   return (
     <>
-      <main className="flex flex-col justify-center items-center gap-6 before:content-[''] after:content-[''] pb-3">
+      <main className="flex flex-col justify-center items-center gap-6 pb-12">
         <section>
           <img src={logo} className="w-[8.5rem]" alt="logo" />
         </section>
 
-        <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-[4rem] font-extrabold">
+        <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-[4rem] font-extrabold leading-tight">
           About our Team
         </h1>
         <section className="flex justify-center items-center flex-col gap-4">
