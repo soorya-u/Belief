@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import About from "./components/About";
-import Home from "./components/Home";
-import Stats from "./components/Stats";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Stats from "./pages/Stats";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
