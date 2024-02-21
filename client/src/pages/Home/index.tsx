@@ -3,9 +3,9 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 
 import logo from "../../assets/img/logo.png";
-import positive_emoji from "../../assets/img/positive.png";
-import negative_emoji from "../../assets/img/negative.png";
-import neutral_emoji from "../../assets/img/neutral.png";
+import TweetInput from "../../components/TweetInput/TweetInput";
+import OverallPrediction from "../../components/OverallPrediction";
+import PercentagePrediction from "../../components/PercentagePrediction";
 
 const Home = () => {
   const [value, setValue] = useState("");
@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="flex flex-col justify-center items-center gap-5">
+      <main className="flex flex-col justify-center items-center gap-6">
         <section>
           <img className="w-[8.5rem]" src={logo} alt="logo" />
         </section>
@@ -64,169 +64,56 @@ const Home = () => {
           </h2>
           <form
             onSubmit={handleSubmit}
-            data-place="home"
             className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] px-[18px] py-[10px] group box-content xs:box-border"
           >
-            <input
-              className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg transition-['0.5s_ease'] leading-10 text-white bg-transparent xs:w-[20rem]"
-              type="text"
-              name="tweet"
-              value={value}
-              placeholder="Enter a tweet..."
-              onChange={(e) => setValue(e.target.value)}
-            />
-            <button
-              type="submit"
-              className="bg-[#1da1f2] text-center border-none rounded-full text-[#eafaf1] float-right h-10 aspect-square flex justify-center items-center transition-[0.4s] cursor-pointer group-hover:bg-white"
-            >
-              <i className="fa fa-twitter group-hover:text-black"></i>
-            </button>
+            <TweetInput value={value} setValue={setValue} />
           </form>
         </section>
 
         {loading ? (
           <>
-            <section className="loading-home">
-              <ReactLoading type="spinningBubbles" color="#1da1f2" />
-            </section>
+            <ReactLoading type="spinningBubbles" color="#1da1f2" />
           </>
         ) : (
           <>
             <section className="w-[95vw] flex flex-col justify-around md:justify-between lg:justify-evenly lg:w-[60vw] sm:flex-row gap-6 sm:gap-0">
               <section className="flex flex-col justify-center items-center gap-2 self-center sm:self-start">
-                {response.output === "Positive" ? (
-                  <>
-                    <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
-                      Overall Prediction
-                    </h2>
-                    <div className="flex gap-2">
-                      <img
-                        className="w-8"
-                        src={positive_emoji}
-                        alt="positive"
-                      />
-                      <h2 className="font-['Chakra_Petch'] text-center px-2 text-[#00ff00] text-2xl font-extrabold">
-                        {response.output}
-                      </h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
-
-                {response.output === "Neutral" ? (
-                  <>
-                    <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
-                      Overall Prediction
-                    </h2>
-                    <div className="flex gap-2">
-                      <img className="w-8" src={neutral_emoji} alt="neutral" />
-                      <h2 className="font-['Chakra_Petch'] text-center px-2 text-[#fbec5d] text-2xl font-extrabold">
-                        {response.output}
-                      </h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
-
-                {response.output === "Negative" ? (
-                  <>
-                    <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
-                      Overall Prediction
-                    </h2>
-                    <div className="flex gap-2">
-                      <img
-                        className="w-8"
-                        src={negative_emoji}
-                        alt="negative"
-                      />
-                      <h2 className="font-['Chakra_Petch'] text-center px-2 text-[#ff1201] text-2xl font-extrabold">
-                        {response.output}
-                      </h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
+                <OverallPrediction response={response.output} />
               </section>
+
               <section className="font-['Chakra_Petch'] flex flex-col justify-center items-center gap-2">
-                {response.positive || response.neutral || response.negative ? (
+                {(response.positive ||
+                  response.neutral ||
+                  response.negative) && (
                   <>
                     <h2 className="font-extrabold text-2xl font-['Chakra_Petch'] text-center px-2">
                       Keyword Prediction
                     </h2>
                     <table border={0} cellSpacing={7}>
                       <tbody>
-                        {response.positive != 0 ? (
-                          <tr>
-                            <td className="font-['Chakra_Petch'] text-[1.3rem] pr-2">
-                              Positive:
-                            </td>
-                            <td className="font-['Chakra_Petch']">
-                              <div className="flex justify-start items-center gap-2 xs:w-[230px] border-[2px] border-white rounded-[15px] overflow-hidden text-white h-[1.3rem] w-[60vw]">
-                                <span
-                                  className="font-['Chakra_Petch'] self-start flex justify-center items-center px-6 overflow-hidden h-full text-black bg-[#00ff00]"
-                                  style={{
-                                    width: response.positive + "%",
-                                  }}
-                                >
-                                  {response.positive}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
-                        {response.neutral != 0 ? (
-                          <tr>
-                            <td className="font-['Chakra_Petch'] text-[1.3rem] pr-2">
-                              Neutral:
-                            </td>
-                            <td>
-                              <div className="flex justify-start items-center gap-2 xs:w-[230px] border-[2px] border-white rounded-[15px] overflow-hidden text-white h-[1.3rem] w-[60vw]">
-                                <span
-                                  className="font-['Chakra_Petch'] self-start flex justify-center items-center px-6 overflow-hidden h-full text-black bg-[#fbec5d]"
-                                  style={{
-                                    width: response.neutral + "%",
-                                  }}
-                                >
-                                  {response.neutral}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
-
-                        {response.negative != 0 ? (
-                          <tr>
-                            <td className="font-['Chakra_Petch'] text-[1.3rem] pr-2">
-                              Negative:
-                            </td>
-                            <td>
-                              <div className="flex justify-start items-center gap-2 xs:w-[230px] border-[2px] border-white rounded-[15px] overflow-hidden text-white h-[1.3rem] w-[60vw]">
-                                <span
-                                  className="font-['Chakra_Petch'] self-start flex justify-center items-center px-6 overflow-hidden h-full text-black bg-[#ff1201]"
-                                  style={{
-                                    width: response.negative + "%",
-                                  }}
-                                >
-                                  {response.negative}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
+                        {[
+                          response.positive,
+                          response.neutral,
+                          response.negative,
+                        ].map((r, idx) => {
+                          if (r == 0) return;
+                          const feeling =
+                            idx === 0
+                              ? "Positive"
+                              : idx === 1
+                              ? "Neutral"
+                              : "Negative";
+                          return (
+                            <PercentagePrediction
+                              key={feeling}
+                              response={feeling}
+                              percentage={r}
+                            />
+                          );
+                        })}
                       </tbody>
                     </table>
                   </>
-                ) : (
-                  <></>
                 )}
               </section>
             </section>
