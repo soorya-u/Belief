@@ -17,7 +17,7 @@ function PercentagePrediction({
   percentage,
   response,
 }: {
-  percentage: string | null;
+  percentage: string | null | number;
   response: string | null;
 }) {
   if (percentage === null || response === null) return;
