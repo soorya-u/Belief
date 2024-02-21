@@ -1,4 +1,3 @@
-import "./styles.css";
 import logo from "../../assets/img/logo.png";
 import dev_soo from "../../assets/img/devs/soorya.jpg";
 import dev_saa from "../../assets/img/devs/saanvi.jpg";

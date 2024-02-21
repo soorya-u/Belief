@@ -1,4 +1,3 @@
-import "./styles.css";
 const Footer = () => {
   return (
     <>
@@ -23,10 +22,7 @@ const Footer = () => {
               Get in Touch
             </h2>
             <div className="flex justify-center items-center gap-6">
-              <a
-                href="https://github.com/soorya-u/Sentiment-Analysis"
-                target="_blank"
-              >
+              <a href="https://github.com/soorya-u/Belief" target="_blank">
                 <i className="fa fa-github text-[2rem]"></i>
               </a>
 

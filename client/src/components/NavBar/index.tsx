@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo_belief.png";
-import "./styles.css";
 
-const Header = () => {
+const NavBar = () => {
   return (
     <>
       <header className="sticky top-0 bg-[#000000ad] backdrop-blur-[5px] z-[3]">
@@ -61,4 +60,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

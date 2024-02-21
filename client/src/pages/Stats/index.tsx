@@ -3,7 +3,7 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 
 import logo from "../../assets/img/logo.png";
-import "./styles.css";
+
 import TweetInput from "../../components/TweetInput/TweetInput";
 import DropDown from "../../components/Dropdown";
 import OverallPrediction from "../../components/OverallPrediction";
