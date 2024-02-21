@@ -1,16 +1,15 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
 import logo from "../../assets/img/logo.png";
-import positive_emoji from "../../assets/img/positive.png";
-import negative_emoji from "../../assets/img/negative.png";
-import neutral_emoji from "../../assets/img/neutral.png";
 import "./styles.css";
+import TweetInput from "../../components/TweetInput/TweetInput";
+import DropDown from "../../components/Dropdown";
+import OverallPrediction from "../../components/OverallPrediction";
+import PercentagePrediction from "../../components/PercentagePrediction";
 
 const Stats = () => {
-  const detailElement = useRef<HTMLDetailsElement>(null);
-
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [modelName, setModelName] = useState("Select a Model...");
@@ -23,10 +22,6 @@ const Stats = () => {
     output: null,
     positive: null,
   });
-
-  function handleClick() {
-    detailElement.current?.removeAttribute("open");
-  }
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     setLoading(true);
@@ -42,290 +37,101 @@ const Stats = () => {
 
   return (
     <>
-      <main className="about">
+      <main className="flex flex-col justify-center items-center gap-6">
         <section className="logo">
-          <img src={logo} className="logo" alt="logo" />
+          <img src={logo} className="w-[8.5rem]" alt="logo" />
         </section>
 
-        <h1>Stats for Nerds</h1>
+        <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-[4rem] font-extrabold">
+          Stats for Nerds
+        </h1>
 
-        <form data-place="stats" onSubmit={handleSubmit}>
-          <section className="input">
-            <h2>Enter your Keyword or Tweets:</h2>
-            <div className="search-box-stats">
-              <input
-                className="tweet-box"
-                type="text"
-                name="tweet"
-                value={value}
-                placeholder="Enter a tweet..."
-                onChange={(e) => setValue(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="bg-[#1da1f2] text-center border-none rounded-full twitter-icon"
-              >
-                <i className="fa fa-twitter"></i>
-              </button>
+        <form
+          className="flex justify-center items-center flex-wrap-reverse gap-20"
+          onSubmit={handleSubmit}
+        >
+          <section className="flex flex-col justify-center items-center gap-6">
+            <h2 className="text-white text-2xl font-bold text-center">
+              Enter your Keyword or Tweets:
+            </h2>
+            <div className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] py-[0.6rem] px-4 group">
+              <TweetInput value={value} setValue={setValue} />
             </div>
           </section>
-
-          <section className="input">
-            <h2>Select any of Our Trained Model:</h2>
-            <details
-              ref={detailElement}
-              id="detail-element"
-              className="custom-select"
-            >
-              <summary className="radios">
-                <input
-                  type="radio"
-                  value=""
-                  name="model-name"
-                  id="default"
-                  title={modelName}
-                  checked
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Ada-Boost-Classifier")}
-                  id="item1"
-                  title="Ada Boost Classifier"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Bernoulli-NB")}
-                  id="item2"
-                  title="Bernoulli NB"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Linear-SVC")}
-                  id="item3"
-                  title="Linear SVC"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Logistic-Regression")}
-                  id="item4"
-                  title="Logistic Regression"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Multinomial-NB")}
-                  id="item5"
-                  title="Multinomial NB"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Passive-Aggressive-Classifier")}
-                  id="item6"
-                  title="Passive Aggressive Classifier"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Perceptron")}
-                  id="item7"
-                  title="Perceptron"
-                  readOnly
-                />
-                <input
-                  type="radio"
-                  name="model-name"
-                  onClick={() => setModelName("Ridge-Classifier")}
-                  id="item8"
-                  title="Ridge Classifier"
-                  readOnly
-                />
-              </summary>
-              <ul className="list select">
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item1">
-                    Ada Boost Classifier
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item2">
-                    Bernoulli NB
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item3">
-                    Linear SVC <em>(Default)</em>
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item4">
-                    Logistic Regression
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item5">
-                    Multinomial NB
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item6">
-                    Passive Aggressive Classifier
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item7">
-                    Perceptron
-                  </label>
-                </li>
-                <li className="option">
-                  <label onClick={handleClick} htmlFor="item8">
-                    Ridge Classifier
-                  </label>
-                </li>
-              </ul>
-            </details>
+          <section className="flex flex-col justify-center items-center gap-6">
+            <h2 className="text-white text-2xl font-bold text-center">
+              Select any of Our Trained Model:
+            </h2>
+            <DropDown modelName={modelName} setModelName={setModelName} />
           </section>
         </form>
 
         {loading ? (
           <>
-            <section className="loading-stats">
-              <ReactLoading type="spinningBubbles" color="#1da1f2" />
-            </section>
+            <ReactLoading type="spinningBubbles" color="#1da1f2" />
           </>
         ) : (
           <>
-            <section className="output">
-              <section className="overall">
-                {response.output === "Positive" ? (
-                  <>
-                    <h2>Overall Prediction</h2>
-                    <div>
-                      <img src={positive_emoji} alt="positive" />
-                      <h2 style={{ color: "#00ff00" }}>{response.output}</h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
-                {response.output === "Neutral" ? (
-                  <>
-                    <h2>Overall Prediction</h2>
-                    <div>
-                      <img src={neutral_emoji} alt="neutral" />
-                      <h2 style={{ color: "#fbec5d" }}>{response.output}</h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
-                {response.output === "Negative" ? (
-                  <>
-                    <h2>Overall Prediction</h2>
-                    <div>
-                      <img src={negative_emoji} alt="negative" />
-                      <h2 style={{ color: "#ff1201" }}>{response.output}</h2>
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
+            <section className="w-[95vw] flex flex-col justify-around md:justify-between lg:justify-evenly lg:w-[60vw] sm:flex-row gap-6 sm:gap-0">
+              <section className="flex flex-col justify-center items-center gap-2 self-center sm:self-start">
+                <OverallPrediction response={response.output} />
               </section>
-              <section className="progress-bar">
-                {response.positive || response.neutral || response.negative ? (
+              <section className="font-['Chakra_Petch'] flex flex-col justify-center items-center gap-2">
+                {(response.positive ||
+                  response.neutral ||
+                  response.negative) && (
                   <>
-                    <h2>Keyword Prediction</h2>
+                    <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
+                      Keyword Prediction
+                    </h2>
                     <table border={0} cellPadding={7}>
                       <tbody>
-                        {response.positive ? (
-                          <tr>
-                            <td className="progress-title">Positive:</td>
-                            <td>
-                              <div className="progress">
-                                <span
-                                  style={{
-                                    color: "#000",
-                                    backgroundColor: "#00ff00",
-                                    width: response.positive + "%",
-                                  }}
-                                >
-                                  {response.positive}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
-
-                        {response.neutral ? (
-                          <tr>
-                            <td className="progress-title">Neutral:</td>
-                            <td>
-                              <div className="progress">
-                                <span
-                                  style={{
-                                    color: "#000",
-                                    backgroundColor: "#fbec5d",
-                                    width: response.neutral + "%",
-                                  }}
-                                >
-                                  {response.neutral}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
-                        {response.negative ? (
-                          <tr>
-                            <td className="progress-title">Negative:</td>
-                            <td>
-                              <div className="progress">
-                                <span
-                                  style={{
-                                    backgroundColor: "#ff1201",
-                                    width: response.negative + "%",
-                                  }}
-                                >
-                                  {response.negative}%
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                        ) : (
-                          <></>
-                        )}
+                        {[
+                          response.positive,
+                          response.neutral,
+                          response.negative,
+                        ].map((r, idx) => {
+                          if (r == 0) return <></>;
+                          const feeling =
+                            idx === 0
+                              ? "Positive"
+                              : idx === 1
+                              ? "Neutral"
+                              : "Negative";
+                          return (
+                            <PercentagePrediction
+                              key={feeling}
+                              response={feeling}
+                              percentage={r}
+                            />
+                          );
+                        })}
                       </tbody>
                     </table>
                   </>
-                ) : (
-                  <></>
                 )}
               </section>
             </section>
-            <section className="stats">
+            <section className="flex justify-center items-center flex-col gap-2 pt-4">
               {response.model_name ? (
                 <>
-                  <h2>Selected Model</h2>
-                  <h2 className="model-name">{response.model_name}</h2>
-                  <h3>
-                    Accuracy: <span>{response.accuracy_score}%</span>
+                  <h2 className="font-['Chakra_Petch'] text-white text-center px-2 text-[1.7rem]">
+                    Selected Model
+                  </h2>
+                  <h2 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 pb-6 text-[1.5rem]">
+                    {response.model_name}
+                  </h2>
+                  <h3 className="font-['Chakra_Petch'] text-white text-center px-2 text-[1.2rem]">
+                    Accuracy:{" "}
+                    <span className="text-[#1da1f2]">
+                      {response.accuracy_score}%
+                    </span>
                   </h3>
-                  <h3>Confusion Matrix:</h3>
+                  <h3 className="font-['Chakra_Petch'] text-white text-center px-2 text-[1.2rem]">
+                    Confusion Matrix:
+                  </h3>
                   <img
+                    className="w-[70vw] xs:w-min"
                     src={import.meta.env.VITE_BACKEND_URL + response.img_path}
                     alt="confusion-matrix"
                   />
