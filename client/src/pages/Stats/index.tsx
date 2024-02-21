@@ -2,12 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
-import logo from "../../assets/img/logo.png";
+import logo from "@/assets/img/logo.png";
 
-import TweetInput from "../../components/TweetInput/TweetInput";
-import DropDown from "../../components/Dropdown";
-import OverallPrediction from "../../components/OverallPrediction";
-import PercentagePrediction from "../../components/PercentagePrediction";
+import TweetInput from "@/components/TweetInput/TweetInput";
+import DropDown from "@/components/Dropdown";
+import OverallPrediction from "@/components/OverallPrediction";
+import PercentagePrediction from "@/components/PercentagePrediction";
 
 const Stats = () => {
   const [value, setValue] = useState("");

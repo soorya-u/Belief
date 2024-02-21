@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
-import logo from "../../assets/img/logo.png";
-import TweetInput from "../../components/TweetInput/TweetInput";
-import OverallPrediction from "../../components/OverallPrediction";
-import PercentagePrediction from "../../components/PercentagePrediction";
+import logo from "@/assets/img/logo.png";
+import TweetInput from "@/components/TweetInput/TweetInput";
+import OverallPrediction from "@/components/OverallPrediction";
+import PercentagePrediction from "@/components/PercentagePrediction";
 
 const Home = () => {
   const [value, setValue] = useState("");

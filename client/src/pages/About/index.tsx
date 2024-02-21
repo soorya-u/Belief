@@ -1,9 +1,9 @@
-import logo from "../../assets/img/logo.png";
-import dev_soo from "../../assets/img/devs/soorya.jpg";
-import dev_saa from "../../assets/img/devs/saanvi.jpg";
-import dev_ai from "../../assets/img/devs/aishwarya.jpg";
-import dev_de from "../../assets/img/devs/devi.jpg";
-import dev_pr from "../../assets/img/devs/pratham.jpg";
+import logo from "@/assets/img/logo.png";
+import dev_soo from "@/assets/img/devs/soorya.jpg";
+import dev_saa from "@/assets/img/devs/saanvi.jpg";
+import dev_ai from "@/assets/img/devs/aishwarya.jpg";
+import dev_de from "@/assets/img/devs/devi.jpg";
+import dev_pr from "@/assets/img/devs/pratham.jpg";
 
 const About = () => {
   return (

@@ -1,6 +1,6 @@
-import positive_emoji from "../../assets/img/positive.png";
-import negative_emoji from "../../assets/img/negative.png";
-import neutral_emoji from "../../assets/img/neutral.png";
+import positive_emoji from "@/assets/img/positive.png";
+import negative_emoji from "@/assets/img/negative.png";
+import neutral_emoji from "@/assets/img/neutral.png";
 
 const responseType = [
   {
