@@ -2,7 +2,7 @@ import "./styles.css";
 const Footer = () => {
   return (
     <>
-      <footer className="flex justify-center items-center flex-col gap-4">
+      <footer className="flex justify-center items-center flex-col gap-4  mt-12 mb-6">
         <section className="sticky flex flex-col justify-center w-[90vw] items-center border-t-[3px] border-t-[#202630] gap-4 2xs:flex-row 2xs:justify-between 2xs:items-start">
           <div className="flex justify-center items-center flex-col gap-0 2xs:gap-4">
             <h2 className="text-[1.5rem] font-['Chakra_Petch'] text-[#1da1f2] font-extrabold">
