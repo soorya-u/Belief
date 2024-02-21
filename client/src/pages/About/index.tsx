@@ -9,7 +9,7 @@ import dev_pr from "../../assets/img/devs/pratham.jpg";
 const About = () => {
   return (
     <>
-      <main className="flex flex-col justify-center items-center gap-6 pb-12">
+      <main className="flex flex-col justify-center items-center gap-6">
         <section>
           <img src={logo} className="w-[8.5rem]" alt="logo" />
         </section>
