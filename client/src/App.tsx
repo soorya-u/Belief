@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import About from "@/pages/About";
-import Home from "@/pages/Home";
-import Stats from "@/pages/Stats";
 import NavBar from "@/components/NavBar";
+import Home from "@/pages/Home";
+import About from "@/pages/About";
+import Stats from "@/pages/Stats";
 import Footer from "@/components/Footer";
 
 function App() {
@@ -19,11 +19,13 @@ function App() {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/stats" element={<Stats />} />
-      </Routes>
+      <main className="flex flex-col justify-center items-center gap-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/stats" element={<Stats />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );
