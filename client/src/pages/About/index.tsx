@@ -7,6 +7,7 @@ import dev_pr from "@/assets/img/devs/pratham.jpg";
 import Header from "@/components/Header";
 import Static from "./Static";
 import Avatar from "./Avatar";
+import Gradient from "@/components/Gradient";
 
 const devs = [
   {
@@ -40,6 +41,7 @@ const About = () => {
   return (
     <>
       <Header heading="About our Team" />
+      <Gradient />
       <Static />
       <section className="flex flex-col justify-center items-center gap-4">
         <h2 className="text-[#1da1f2] text-[2rem] font-bold">Teammates</h2>

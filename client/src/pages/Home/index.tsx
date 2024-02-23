@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Static from "./Static";
 import Input from "./Input";
 import Output from "./Output";
+import Gradient from "@/components/Gradient";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -33,8 +34,8 @@ const Home = () => {
   return (
     <>
       <Header heading="Belief" />
+      <Gradient />
       <Static />
-
       <Input handleSubmit={handleSubmit} />
 
       {loading ? (

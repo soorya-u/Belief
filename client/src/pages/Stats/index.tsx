@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Input from "./Input";
 import Output from "./Output";
 import ModelStats from "./ModelStats";
+import Gradient from "@/components/Gradient";
 
 const Stats = () => {
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ const Stats = () => {
   return (
     <>
       <Header heading="Stats for Nerds" />
+      <Gradient />
       <Input handleSubmit={handleSubmit} />
 
       {loading ? (
