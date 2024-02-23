@@ -4,7 +4,7 @@ import logo from "@/assets/img/logo_belief.png";
 const NavBar = () => {
   return (
     <>
-      <header className="sticky top-0 bg-[#000000ad] backdrop-blur-[5px] z-[3]">
+      <header className="sticky top-0 bg-gradient-to-b from-[#000000be] to-transparent via-[95%] backdrop-blur-[7px] z-[3]">
         <nav className="flex justify-center items-center py-4 px-8 sm:justify-between">
           <a href="https://github.com/soorya-u/Sentiment-Analysis">
             <img
