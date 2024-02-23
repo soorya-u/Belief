@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Stats from "@/pages/Stats";
 import Footer from "@/components/Footer";
+import Wrapper from "@/components/Wrapper";
 
 function App() {
   useEffect(() => {
@@ -19,13 +20,13 @@ function App() {
   return (
     <>
       <NavBar />
-      <main className="flex flex-col justify-center items-center gap-6">
+      <Wrapper>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/stats" element={<Stats />} />
         </Routes>
-      </main>
+      </Wrapper>
       <Footer />
     </>
   );
