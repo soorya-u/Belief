@@ -24,6 +24,10 @@ function DropDown({
             name="model-name"
             id="default"
             title={modelName}
+            style={{
+              color: modelName === "Select a Model..." ? "#989FAB" : "#fff",
+              fontSize: "large"
+            }}
             checked
             readOnly
           />

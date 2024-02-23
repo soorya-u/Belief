@@ -8,7 +8,7 @@ function TweetInput({
   return (
     <>
       <input
-        className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg transition-['0.5s_ease'] leading-10 text-white bg-transparent xs:w-[20rem]"
+        className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg duration-500 ease-in leading-10 text-white bg-transparent xs:w-[20rem]"
         type="text"
         name="tweet"
         value={value}
