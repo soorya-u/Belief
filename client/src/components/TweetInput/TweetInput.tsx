@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+
 function TweetInput({
   value,
   setValue,
@@ -19,7 +23,8 @@ function TweetInput({
         type="submit"
         className="bg-[#1da1f2] text-center border-none rounded-full text-[#eafaf1] float-right h-10 aspect-square flex justify-center items-center transition-[0.4s] cursor-pointer group-hover:bg-white"
       >
-        <i className="fa fa-twitter group-hover:text-black"></i>
+        {/* <FontAwesomeIcon icon={faSpinner} className="animate-spin w-[20px] h-[20px]" /> */}
+        {/* <FontAwesomeIcon icon={faTwitter} className="w-[15px] h-[15px]" /> */}
       </button>
     </>
   );

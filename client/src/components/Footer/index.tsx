@@ -1,3 +1,7 @@
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Footer = () => {
   return (
     <>
@@ -23,15 +27,15 @@ const Footer = () => {
             </h2>
             <div className="flex justify-center items-center gap-6">
               <a href="https://github.com/soorya-u/Belief" target="_blank">
-                <i className="fa fa-github text-[2rem]"></i>
+                <FontAwesomeIcon icon={faGithub} className="text-[2rem]" />
               </a>
 
               <a href="mailto:sooryau7@gmail.com" target="_blank">
-                <i className="fa fa-envelope text-[2rem]"></i>
+                <FontAwesomeIcon icon={faEnvelope} className="text-[2rem]" />
               </a>
 
               <a href="https://www.linkedin.com/in/soorya-u/" target="_blank">
-                <i className="fa fa-linkedin-square text-[2rem]"></i>
+                <FontAwesomeIcon icon={faLinkedin} className="text-[2rem]" />
               </a>
             </div>
           </div>
