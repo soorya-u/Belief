@@ -18,7 +18,7 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<MainPayload> }) {
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] px-[18px] py-[10px] box-content xs:box-border"
+          className="bg-[#202630] w-[85vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] px-[18px] py-[10px] box-content xs:box-border"
         >
           <TweetInput register={register} isSubmitting={isSubmitting} />
         </form>

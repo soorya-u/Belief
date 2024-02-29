@@ -19,7 +19,7 @@ function SelectModel({
   return (
     <>
       <Select value={value} onValueChange={onChange} disabled={isSubmitting}>
-        <SelectTrigger className="w-[320px] h-[70px] rounded-[15px] leading-[1.75rem] text-[1.125rem] border-[2px] border-[#1da1f2] bg-[#2026309a]">
+        <SelectTrigger className="w-[85vw] xs:w-[20rem] h-[70px] rounded-[15px] leading-[1.75rem] text-[1.125rem] border-[2px] border-[#1da1f2] bg-[#2026309a]">
           <SelectValue
             className="text-[#989FAB] font-['Maven_Pro']"
             placeholder="Select a Model..."

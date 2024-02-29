@@ -26,7 +26,7 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
           <h2 className="text-white text-2xl font-bold text-center">
             Enter your Keyword or Tweets:
           </h2>
-          <div className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] py-[0.6rem] px-4">
+          <div className="bg-[#202630] w-[85vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] py-[0.6rem] px-4">
             <TweetInput register={register} isSubmitting={isSubmitting} />
           </div>
         </section>
