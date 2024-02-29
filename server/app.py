@@ -83,7 +83,7 @@ def stats():
 
     # Getting Body
     tweet = request.json['tweet']
-    model_name = request.json['model_name']
+    model_name = request.json['modelName']
 
     # Object Init
     pre = PreProcessor(tweet)
