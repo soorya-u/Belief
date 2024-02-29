@@ -1,5 +1,5 @@
-import OverallPrediction from "@/components/OverallPrediction";
-import PercentagePrediction from "@/components/PercentagePrediction";
+import OverallPrediction from "@/components/custom/OverallPrediction";
+import PercentagePrediction from "@/components/custom/PercentagePrediction";
 
 type Response = {
   accuracy_score: null | string;
@@ -29,7 +29,7 @@ function Output({ response }: { response: Response }) {
                 <tbody>
                   {[response.positive, response.neutral, response.negative].map(
                     (r, idx) => {
-                      if (r == 0) return <></>;
+                      if (r == 0) return;
                       const feeling =
                         idx === 0
                           ? "Positive"

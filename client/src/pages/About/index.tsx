@@ -4,10 +4,10 @@ import dev_ai from "@/assets/img/devs/aishwarya.jpg";
 import dev_de from "@/assets/img/devs/devi.jpg";
 import dev_pr from "@/assets/img/devs/pratham.jpg";
 
-import Header from "@/components/Header";
+import Header from "@/components/custom/Header";
 import Static from "./Static";
 import Avatar from "./Avatar";
-import Gradient from "@/components/Gradient";
+import Gradient from "@/components/custom/Gradient";
 
 const devs = [
   {

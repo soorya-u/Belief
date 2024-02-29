@@ -1,12 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
+import { SubmitHandler } from "react-hook-form";
 
-import Header from "@/components/Header";
+import Header from "@/components/custom/Header";
 import Static from "./Static";
 import Input from "./Input";
 import Output from "./Output";
-import Gradient from "@/components/Gradient";
+import Gradient from "@/components/custom/Gradient";
+
+import { MainPayload } from "@/interface";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -17,16 +20,10 @@ const Home = () => {
     negative: null,
   });
 
-  const handleSubmit = async (
-    event: { preventDefault: () => void },
-    value: string
-  ) => {
+  const onSubmit: SubmitHandler<MainPayload> = async (payload) => {
     setLoading(true);
-    event.preventDefault();
     await axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/main`, {
-        tweet: value,
-      })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/main`, payload)
       .then((res) => setResponse(res.data));
     setLoading(false);
   };
@@ -36,7 +33,7 @@ const Home = () => {
       <Header heading="Belief" />
       <Gradient />
       <Static />
-      <Input handleSubmit={handleSubmit} />
+      <Input onSubmit={onSubmit} />
 
       {loading ? (
         <ReactLoading type="spinningBubbles" color="#1da1f2" />
