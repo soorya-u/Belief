@@ -2,11 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import ReactLoading from "react-loading";
 
+import { SubmitHandler } from "react-hook-form";
 import Header from "@/components/Header";
 import Input from "./Input";
 import Output from "./Output";
 import ModelStats from "./ModelStats";
 import Gradient from "@/components/Gradient";
+import { StatsPayload } from "@/interface";
 
 const Stats = () => {
   const [loading, setLoading] = useState(false);
@@ -21,18 +23,10 @@ const Stats = () => {
     positive: null,
   });
 
-  const handleSubmit = async (
-    event: { preventDefault: () => void },
-    value: string,
-    modelName: string
-  ) => {
+  const onSubmit: SubmitHandler<StatsPayload> = async (payload) => {
     setLoading(true);
-    event.preventDefault();
     await axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/stats`, {
-        tweet: value,
-        model_name: modelName,
-      })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/stats`, payload)
       .then((res) => setResponse(res.data));
     setLoading(false);
   };
@@ -41,7 +35,7 @@ const Stats = () => {
     <>
       <Header heading="Stats for Nerds" />
       <Gradient />
-      <Input handleSubmit={handleSubmit} />
+      <Input onSubmit={onSubmit} />
 
       {loading ? (
         <ReactLoading type="spinningBubbles" color="#1da1f2" />

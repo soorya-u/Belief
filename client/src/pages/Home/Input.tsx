@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 import TweetInput from "@/components/TweetInput/TweetInput";
 
-type SubmitHandler = (
-  event: React.FormEvent<HTMLFormElement>,
-  value: string
-) => Promise<void>;
+import { MainPayload } from "@/interface";
 
-function Input({ handleSubmit }: { handleSubmit: SubmitHandler }) {
-  const [value, setValue] = useState("");
+function Input({ onSubmit }: { onSubmit: SubmitHandler<MainPayload> }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<MainPayload>();
   return (
     <>
       <section className="flex flex-col justify-center items-center gap-4 after:content-['']">
@@ -15,10 +17,10 @@ function Input({ handleSubmit }: { handleSubmit: SubmitHandler }) {
           Enter your Keyword or Tweets:
         </h2>
         <form
-          onSubmit={(e) => handleSubmit(e, value)}
+          onSubmit={handleSubmit(onSubmit)}
           className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] px-[18px] py-[10px] group box-content xs:box-border"
         >
-          <TweetInput value={value} setValue={setValue} />
+          <TweetInput register={register} isSubmitting={isSubmitting} />
         </form>
       </section>
     </>
