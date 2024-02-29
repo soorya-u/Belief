@@ -3,7 +3,6 @@ export type MainPayload = {
 };
 
 export type ModelName =
-  | "Select a Model..."
   | "Ada-Boost-Classifier"
   | "Bernoulli-NB"
   | "Linear-SVC"
