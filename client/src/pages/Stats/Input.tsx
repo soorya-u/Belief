@@ -1,5 +1,5 @@
 import TweetInput from "@/components/custom/TweetInput/TweetInput";
-import DropDown from "@/components/custom/Dropdown";
+import Dropdown from "@/components/custom/Dropdown";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { StatsPayload } from "@/interface";
@@ -9,10 +9,10 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
     register,
     handleSubmit,
     formState: { isSubmitting },
-    getValues,
+    control,
   } = useForm<StatsPayload>({
     defaultValues: {
-      modelName: "Select a Model...",
+      modelName: "Linear-SVC",
     },
   });
 
@@ -26,7 +26,7 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
           <h2 className="text-white text-2xl font-bold text-center">
             Enter your Keyword or Tweets:
           </h2>
-          <div className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] py-[0.6rem] px-4 group">
+          <div className="bg-[#202630] w-[80vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] py-[0.6rem] px-4">
             <TweetInput register={register} isSubmitting={isSubmitting} />
           </div>
         </section>
@@ -34,11 +34,7 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
           <h2 className="text-white text-2xl font-bold text-center">
             Select any of Our Trained Model:
           </h2>
-          <DropDown
-            value={getValues("modelName")}
-            register={register}
-            isSubmitting={isSubmitting}
-          />
+          <Dropdown control={control} isSubmitting={isSubmitting} />
         </section>
       </form>
     </>

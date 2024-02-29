@@ -15,16 +15,19 @@ function TweetInput({
   return (
     <>
       <input
+        disabled={isSubmitting}
         type="text"
         placeholder="Enter a tweet..."
         className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg duration-500 ease-in leading-10 text-white bg-transparent xs:w-[20rem]"
         // @ts-expect-error Strict Type Checking
         {...register("tweet")}
+        style={{ cursor: isSubmitting ? "not-allowed" : "" }}
       />
       <button
         disabled={isSubmitting}
         type="submit"
-        className="bg-[#1da1f2] text-center border-none rounded-full text-[#eafaf1] float-right h-10 aspect-square flex justify-center items-center transition-[0.4s] cursor-pointer group-hover:bg-white disabled:group-hover:bg-[#1da1f2] disabled:opacity-40"
+        className="bg-[#1da1f2] text-center border-none rounded-full text-[#eafaf1] float-right h-10 aspect-square flex justify-center items-center transition-[0.4s] cursor-pointer hover:bg-white disabled:bg-[#1da1f2] disabled:opacity-40 group"
+        style={{ cursor: isSubmitting ? "not-allowed" : "" }}
       >
         {isSubmitting ? (
           <FontAwesomeIcon
