@@ -29,7 +29,7 @@ function Output({ response }: { response: Response }) {
                 <tbody>
                   {[response.positive, response.neutral, response.negative].map(
                     (r, idx) => {
-                      if (r == 0) return <></>;
+                      if (r == 0) return;
                       const feeling =
                         idx === 0
                           ? "Positive"
@@ -38,7 +38,7 @@ function Output({ response }: { response: Response }) {
                           : "Negative";
                       return (
                         <PercentagePrediction
-                          key={feeling}
+                          key={idx}
                           response={feeling}
                           percentage={r}
                         />
