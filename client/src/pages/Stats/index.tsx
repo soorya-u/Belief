@@ -3,11 +3,11 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 
 import { SubmitHandler } from "react-hook-form";
-import Header from "@/components/Header";
+import Header from "@/components/custom/Header";
 import Input from "./Input";
 import Output from "./Output";
 import ModelStats from "./ModelStats";
-import Gradient from "@/components/Gradient";
+import Gradient from "@/components/custom/Gradient";
 import { StatsPayload } from "@/interface";
 
 const Stats = () => {

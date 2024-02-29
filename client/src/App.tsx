@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/custom/NavBar";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Stats from "@/pages/Stats";
-import Footer from "@/components/Footer";
-import Wrapper from "@/components/Wrapper";
+import Footer from "@/components/custom/Footer";
+import Wrapper from "@/components/custom/Wrapper";
 
 function App() {
   useEffect(() => {

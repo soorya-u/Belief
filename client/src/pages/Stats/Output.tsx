@@ -1,5 +1,5 @@
-import OverallPrediction from "@/components/OverallPrediction";
-import PercentagePrediction from "@/components/PercentagePrediction";
+import OverallPrediction from "@/components/custom/OverallPrediction";
+import PercentagePrediction from "@/components/custom/PercentagePrediction";
 
 type Response = {
   accuracy_score: null | string;
@@ -38,7 +38,7 @@ function Output({ response }: { response: Response }) {
                           : "Negative";
                       return (
                         <PercentagePrediction
-                          key={idx}
+                          key={feeling}
                           response={feeling}
                           percentage={r}
                         />

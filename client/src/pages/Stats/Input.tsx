@@ -1,5 +1,5 @@
-import TweetInput from "@/components/TweetInput/TweetInput";
-import DropDown from "@/components/Dropdown";
+import TweetInput from "@/components/custom/TweetInput/TweetInput";
+import DropDown from "@/components/custom/Dropdown";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { StatsPayload } from "@/interface";

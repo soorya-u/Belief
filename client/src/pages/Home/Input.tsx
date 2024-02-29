@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import TweetInput from "@/components/TweetInput/TweetInput";
+import TweetInput from "@/components/custom/TweetInput/TweetInput";
 
 import { MainPayload } from "@/interface";
 

@@ -1,5 +1,5 @@
-import OverallPrediction from "@/components/OverallPrediction";
-import PercentagePrediction from "@/components/PercentagePrediction";
+import OverallPrediction from "@/components/custom/OverallPrediction";
+import PercentagePrediction from "@/components/custom/PercentagePrediction";
 
 function Output({
   response,

@@ -18,7 +18,7 @@ function TweetInput({
         type="text"
         placeholder="Enter a tweet..."
         className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg duration-500 ease-in leading-10 text-white bg-transparent xs:w-[20rem]"
-        // @ts-expect-error randome this
+        // @ts-expect-error Strict Type Checking
         {...register("tweet")}
       />
       <button

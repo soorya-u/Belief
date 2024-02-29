@@ -3,11 +3,11 @@ import axios from "axios";
 import ReactLoading from "react-loading";
 import { SubmitHandler } from "react-hook-form";
 
-import Header from "@/components/Header";
+import Header from "@/components/custom/Header";
 import Static from "./Static";
 import Input from "./Input";
 import Output from "./Output";
-import Gradient from "@/components/Gradient";
+import Gradient from "@/components/custom/Gradient";
 
 import { MainPayload } from "@/interface";
 
