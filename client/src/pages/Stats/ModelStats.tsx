@@ -1,14 +1,7 @@
-type Response = {
-  accuracy_score: null | string;
-  img_path: undefined | string;
-  model_name: null | string;
-  negative: null | string | number;
-  neutral: null | string | number;
-  output: null | string;
-  positive: null | string | number;
-};
+import { StatsResult } from "@/interface";
 
-function ModelStats({ response }: { response: Response }) {
+function ModelStats({ response }: { response: StatsResult | undefined }) {
+  if (response === undefined) return;
   return (
     <>
       <section className="flex justify-center items-center flex-col gap-2 pt-4">

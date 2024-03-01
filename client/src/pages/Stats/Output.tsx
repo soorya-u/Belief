@@ -1,17 +1,9 @@
 import OverallPrediction from "@/components/custom/OverallPrediction";
 import PercentagePrediction from "@/components/custom/PercentagePrediction";
+import { StatsResult } from "@/interface";
 
-type Response = {
-  accuracy_score: null | string;
-  img_path: undefined | string;
-  model_name: null | string;
-  negative: null | string | number;
-  neutral: null | string | number;
-  output: null | string;
-  positive: null | string | number;
-};
-
-function Output({ response }: { response: Response }) {
+function Output({ response }: { response: StatsResult | undefined }) {
+  if (response === undefined) return;
   return (
     <>
       {" "}

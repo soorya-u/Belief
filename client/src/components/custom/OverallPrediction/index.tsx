@@ -20,9 +20,7 @@ const responseType = [
   },
 ];
 
-function OverallPrediction({ response }: { response: string | null }) {
-  if (response === null) return;
-
+function OverallPrediction({ response }: { response: string }) {
   const output = responseType.filter((r) => r.result === response)[0];
 
   return (
