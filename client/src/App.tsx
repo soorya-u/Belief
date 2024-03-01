@@ -1,6 +1,7 @@
-import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
+
+import { AxiosService } from "./libs/axios";
+import { useQuery } from "@tanstack/react-query";
 
 import NavBar from "@/components/custom/NavBar";
 import Home from "@/pages/Home";
@@ -10,12 +11,13 @@ import Footer from "@/components/custom/Footer";
 import Wrapper from "@/components/custom/Wrapper";
 
 function App() {
-  useEffect(() => {
-    async function wakeServer() {
-      await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/wake`);
-    }
-    wakeServer();
+  const { error } = useQuery({
+    queryKey: ["wake"],
+    queryFn: async () => await AxiosService.wakeServer(),
+    refetchInterval: 1000 * 60 * 10, // 10 Minutes
   });
+
+  if (error) return;
 
   return (
     <>

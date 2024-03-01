@@ -1,16 +1,10 @@
 import OverallPrediction from "@/components/custom/OverallPrediction";
 import PercentagePrediction from "@/components/custom/PercentagePrediction";
+import { MainResult } from "@/interface";
 
-function Output({
-  response,
-}: {
-  response: {
-    output: null | string;
-    positive: null | number | string;
-    neutral: null | number | string;
-    negative: null | number | string;
-  };
-}) {
+function Output({ response }: { response: MainResult | undefined }) {
+  if (response === undefined) return <></>;
+
   return (
     <section className="w-[95vw] flex flex-col justify-around md:justify-between lg:justify-evenly lg:w-[60vw] sm:flex-row gap-6 sm:gap-0">
       <section className="flex flex-col justify-center items-center gap-2 self-center sm:self-start">

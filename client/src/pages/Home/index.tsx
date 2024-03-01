@@ -1,31 +1,25 @@
-import { useState } from "react";
-import axios from "axios";
 import ReactLoading from "react-loading";
 import { SubmitHandler } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+
+import { MainPayload } from "@/interface";
+import { AxiosService } from "@/libs/axios";
 
 import Header from "@/components/custom/Header";
+import Gradient from "@/components/custom/Gradient";
+
 import Static from "./Static";
 import Input from "./Input";
 import Output from "./Output";
-import Gradient from "@/components/custom/Gradient";
-
-import { MainPayload } from "@/interface";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState({
-    output: null,
-    positive: null,
-    neutral: null,
-    negative: null,
+  const { data, isPending, mutateAsync } = useMutation({
+    mutationFn: async (payload: MainPayload) =>
+      await AxiosService.getMainAnalyzer(payload),
   });
 
   const onSubmit: SubmitHandler<MainPayload> = async (payload) => {
-    setLoading(true);
-    await axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/main`, payload)
-      .then((res) => setResponse(res.data));
-    setLoading(false);
+    await mutateAsync(payload);
   };
 
   return (
@@ -35,10 +29,10 @@ const Home = () => {
       <Static />
       <Input onSubmit={onSubmit} />
 
-      {loading ? (
+      {isPending ? (
         <ReactLoading type="spinningBubbles" color="#1da1f2" />
       ) : (
-        <Output response={response} />
+        <Output response={data} />
       )}
     </>
   );
