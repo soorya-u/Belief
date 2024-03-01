@@ -15,3 +15,16 @@ export type ModelName =
 export type StatsPayload = MainPayload & {
   modelName: ModelName;
 };
+
+export type MainResult = {
+  output: string;
+  positive: number;
+  neutral: number;
+  negative: number;
+};
+
+export type StatsResult = MainResult & {
+  accuracy_score: number;
+  img_path: string;
+  model_name: string;
+};
