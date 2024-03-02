@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import { StatsPayload } from "@/interface";
 import { AxiosService } from "@/libs/axios";
+import { useNetworkAlert } from "@/hooks/use-alert";
 
 import Header from "@/components/custom/Header";
 import Gradient from "@/components/custom/Gradient";
@@ -13,10 +14,12 @@ import Output from "./Output";
 import ModelStats from "./ModelStats";
 
 const Stats = () => {
-  const { isPending, data, mutateAsync } = useMutation({
+  const { isPending, data, mutateAsync, isError } = useMutation({
     mutationFn: async (payload: StatsPayload) =>
       await AxiosService.getStatsAnalyzer(payload),
   });
+
+  useNetworkAlert(isError);
 
   const onSubmit: SubmitHandler<StatsPayload> = async (payload) => {
     await mutateAsync(payload);
