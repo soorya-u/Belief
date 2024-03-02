@@ -14,7 +14,7 @@ const Footer = () => {
             <h4 className="self-center 2xs:self-start">
               <a
                 className="text-[1.2rem] no-underline font-['Audiowide']"
-                href="https://su-elite-aiml.vercel.app/"
+                href="https://elite-aiml.soorya-u.dev/"
               >
                 elite-AIML
               </a>
