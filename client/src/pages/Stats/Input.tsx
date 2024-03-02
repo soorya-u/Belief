@@ -1,10 +1,13 @@
-import TweetInput from "@/components/custom/TweetInput/TweetInput";
-import Dropdown from "@/components/custom/Dropdown";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { StatsPayload } from "@/interface";
+import { useToast } from "@/components/shadcn/use-toast";
+
+import TweetInput from "@/components/custom/TweetInput/TweetInput";
+import Dropdown from "@/components/custom/Dropdown";
 
 function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
+  const { toast } = useToast();
   const {
     register,
     handleSubmit,
@@ -16,11 +19,15 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
     },
   });
 
+  const onSubmitError = () => {
+    toast({ title: "Form Error", description: "The Tweet Field is Required" });
+  };
+
   return (
     <>
       <form
         className="flex justify-center items-center flex-wrap-reverse gap-20"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onSubmitError)}
       >
         <section className="flex flex-col justify-center items-center gap-6">
           <h2 className="text-white text-2xl font-bold text-center">

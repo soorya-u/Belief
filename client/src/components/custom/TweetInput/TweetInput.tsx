@@ -5,7 +5,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { UseFormRegister } from "react-hook-form";
 import { MainPayload, StatsPayload } from "@/interface";
 
-function TweetInput({
+function  TweetInput({
   register,
   isSubmitting,
 }: {
@@ -20,7 +20,9 @@ function TweetInput({
         placeholder="Enter a tweet..."
         className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg duration-500 ease-in leading-10 text-white bg-transparent xs:w-[20rem]"
         // @ts-expect-error Strict Type Checking
-        {...register("tweet")}
+        {...register("tweet", {
+          required: { value: true, message: "The Tweet is Required" },
+        })}
         style={{ cursor: isSubmitting ? "not-allowed" : "" }}
       />
       <button
