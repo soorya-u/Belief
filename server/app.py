@@ -23,6 +23,8 @@ PY_ENV = os.getenv("PY_ENV")
 DATABASE_URL = os.getenv("DATABASE_URL")
 PORT = os.getenv("PORT")
 
+print(PY_ENV)
+
 # Backend Framework and CORS
 app = Flask(__name__)
 CORS(app)
@@ -119,6 +121,7 @@ def stats():
 
 @app.route("/api/v1/wake")
 def wake():
+    print(PY_ENV)
     return jsonify({
         'wakeStatus': True
     })
