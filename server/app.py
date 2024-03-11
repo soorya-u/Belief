@@ -121,7 +121,6 @@ def stats():
 
 @app.route("/api/v1/wake")
 def wake():
-    print(PY_ENV)
     return jsonify({
         'wakeStatus': True
     })
