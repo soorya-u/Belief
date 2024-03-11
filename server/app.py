@@ -16,9 +16,10 @@ from waitress import serve
 from services import Database, MLAlgorithms, PreProcessor
 
 # Environment Files
-if os.getenv("DATABASE_URL") == None:
+if os.getenv("PY_ENV") == None or os.getenv("DATABASE_URL") == None:
     load_dotenv()
 
+PY_ENV = os.getenv("PY_ENV")
 DATABASE_URL = os.getenv("DATABASE_URL")
 PORT = os.getenv("PORT")
 
@@ -124,5 +125,7 @@ def wake():
 
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=PORT)  # For Production
-    # app.run(debug=True, port=PORT)  # For Development
+    if PY_ENV == "production":
+        serve(app, host='0.0.0.0', port=PORT)  # For Production
+    else:
+        app.run(debug=True, port=PORT)  # For Development
