@@ -1,0 +1,11 @@
+extras
+**\__pycache__
+env
+.env
+
+.git
+.gitignore
+README.md
+
+Dockerfile
+.dockerignore
