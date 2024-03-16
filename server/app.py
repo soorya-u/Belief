@@ -21,9 +21,7 @@ if os.getenv("PY_ENV") == None or os.getenv("DATABASE_URL") == None:
 
 PY_ENV = os.getenv("PY_ENV")
 DATABASE_URL = os.getenv("DATABASE_URL")
-PORT = os.getenv("PORT")
-
-print(PY_ENV)
+PORT = os.getenv("PORT") or 7000
 
 # Backend Framework and CORS
 app = Flask(__name__)
@@ -130,4 +128,4 @@ if __name__ == '__main__':
     if PY_ENV == "production":
         serve(app, host='0.0.0.0', port=PORT)  # For Production
     else:
-        app.run(debug=True, port=PORT)  # For Development
+        app.run(host='0.0.0.0', debug=True, port=PORT)  # For Development

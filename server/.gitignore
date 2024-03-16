@@ -2,4 +2,3 @@ extras
 **\__pycache__
 env
 .env
-.vercel
