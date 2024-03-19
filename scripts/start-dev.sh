@@ -1,3 +1,36 @@
+#!/bin/bash
+
+main() {
+
+printf "What Environment do you want the app to run on? Docker(d)/Local(l): "
+read env
+
+case $env in
+
+  "d")
+    dockerSetup
+    ;;
+
+  "l")
+    localSetup
+    ;;
+  
+  *) 
+    exit 1
+    ;;
+
+esac
+
+}
+
+
+dockerSetup() {
+  docker-compose -f ./scripts/docker-compose.yml -p belief up -d &> /dev/null
+  printf "\n Container has been Successfully Spun Up \n"
+  exit 0
+}
+
+localSetup() {
 scripting_shell="$(readlink /proc/$$/exe | sed "s/.*\///")"
 client_port=5000
 server_port=9000
@@ -42,3 +75,6 @@ printf "Client is running at http://localhost:$client_port \n"
 printf "Server is running at http://loaclhost:$server_port \n"
 
 wait $client_process $server_process
+}
+
+main

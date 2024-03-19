@@ -11,7 +11,7 @@ services:
       - network
 
   server:
-    build: ./server
+    build: ../server
     ports:
       - 9000:5000
     environment:
@@ -20,7 +20,7 @@ services:
       - network
 
   client:
-    build: ./client
+    build: ../client
     ports:
       - 5000:5173
     environment:
