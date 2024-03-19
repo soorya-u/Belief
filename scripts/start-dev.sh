@@ -45,7 +45,7 @@ localSetup() {
   done
   
   if ! test -d ./client/node_modules; then
-    printf "Initalizing node_modules"
+    echo "Initalizing node_modules"
     cd client
     command $node_package_manager i > /dev/null
     cd ..
@@ -53,7 +53,7 @@ localSetup() {
   fi
   
   if ! test -d ./server/env; then
-    printf "Creating Python Virtual Environment"
+    echo "Creating Python Virtual Environment"
     cd server
     python3 -m venv env
     source env/bin/activate
@@ -74,8 +74,8 @@ localSetup() {
   server_process=$!
   
   printf "Development Server started! \n\n"
-  printf "Client is running at http://localhost:$client_port \n"
-  printf "Server is running at http://loaclhost:$server_port \n"
+  echo "Client is running at http://localhost:$client_port"
+  echo "Server is running at http://localhost:$server_port"
   
   wait $client_process $server_process
 }
