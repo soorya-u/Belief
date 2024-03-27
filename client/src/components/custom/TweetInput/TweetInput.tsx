@@ -3,7 +3,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { UseFormRegister } from "react-hook-form";
-import { MainPayload, StatsPayload } from "@/interface";
+import { MainPayload, StatsPayload } from "@/types";
 
 function  TweetInput({
   register,

@@ -1,7 +1,7 @@
 import { SubmitHandler } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 
-import { MainPayload, StatsPayload } from "@/interface";
+import { MainPayload, StatsPayload } from "@/types";
 import { AxiosService } from "@/libs/axios";
 import { useNetworkAlert } from "@/hooks/use-alert";
 

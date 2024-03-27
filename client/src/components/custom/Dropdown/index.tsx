@@ -1,5 +1,5 @@
 import { Control, Controller } from "react-hook-form";
-import { StatsPayload } from "@/interface";
+import { StatsPayload } from "@/types";
 import SelectModel from "./SelectModel";
 
 function Dropdown({

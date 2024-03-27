@@ -1,6 +1,6 @@
 import OverallPrediction from "@/components/custom/OverallPrediction";
 import PercentagePrediction from "@/components/custom/PercentagePrediction";
-import { MainResult } from "@/interface";
+import { MainResult } from "@/types";
 
 function Output({ response }: { response: MainResult | undefined }) {
   if (response === undefined) return <></>;

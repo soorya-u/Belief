@@ -1,4 +1,4 @@
-import { StatsResult } from "@/interface";
+import { StatsResult } from "@/types";
 
 function ModelStats({ response }: { response: StatsResult | undefined }) {
   if (response === undefined) return;
