@@ -14,9 +14,9 @@ const Footer = () => {
             <h4 className="self-center 2xs:self-start">
               <a
                 className="text-[1.2rem] no-underline font-['Audiowide']"
-                href="https://elite-aiml.soorya-u.dev/"
+                href="https://grade-grove.soorya-u.dev/"
               >
-                elite-AIML
+                Grade Grove
               </a>
             </h4>
           </div>
