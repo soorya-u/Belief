@@ -5,7 +5,7 @@ import {
   MainResult,
   StatsPayload,
   StatsResult,
-} from "@/interface";
+} from "@/types";
 
 const axiosClient = axios.create({
   baseURL: `${import.meta.env.VITE_BACKEND_URL}/api/v1`,
