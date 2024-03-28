@@ -1,17 +1,30 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ReactNode, Suspense, lazy } from "react";
 
 const queryClient = new QueryClient();
 
 export default function TanStackQueryProvider({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
+  const TanStackQueryDevtools =
+    process.env.NODE_ENV === "production"
+      ? () => null
+      : lazy(() =>
+          import("@tanstack/react-query-devtools").then(
+            ({ ReactQueryDevtools }) => ({
+              default: ReactQueryDevtools,
+            })
+          )
+        );
+
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      {import.meta.env.VITE_NODE_ENV !== "production" && <ReactQueryDevtools />}
+      <Suspense>
+        <TanStackQueryDevtools />
+      </Suspense>
     </QueryClientProvider>
   );
 }
