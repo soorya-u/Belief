@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-export const useTitle = (pageName: string) => {
+export const useTitle = (pageName?: string) => {
   useEffect(() => {
-    document.title = `${pageName} | Belief`;
+    if (pageName) document.title = `${pageName} | Belief`;
+    else document.title = `Belief`;
   }, [pageName]);
 };

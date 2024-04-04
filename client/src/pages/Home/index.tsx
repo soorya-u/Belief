@@ -11,7 +11,7 @@ import Input from "./Input";
 import Output from "./Output";
 
 export default function Home() {
-  useTitle("Home");
+  useTitle();
   const { data, isPending, onSubmit } = useHomePost();
 
   return (
