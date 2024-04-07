@@ -37,7 +37,7 @@ localSetup() {
   client_port=5000
   server_port=9000
   
-  for cmd in pnpm yarn npm; do
+  for cmd in bun pnpm yarn npm; do
     if command -v $cmd > /dev/null; then
       node_package_manager=$cmd
       break

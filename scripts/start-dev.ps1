@@ -29,7 +29,7 @@ function localSetup {
   $client_port = 5000
   $server_port = 9000
 
-  $package_managers = @("pnpm", "yarn", "npm")
+  $package_managers = @("bun", "pnpm", "yarn", "npm")
   $node_package_manager = $null
   
   foreach ($manager in $package_managers) {
