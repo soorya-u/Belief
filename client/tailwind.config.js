@@ -12,7 +12,7 @@ export default {
   prefix: "",
   theme: {
     screens: {
-      "2xs": "360px",
+      "2xs": "390px",
       xs: "450px",
       sm: "640px",
       md: "768px",
