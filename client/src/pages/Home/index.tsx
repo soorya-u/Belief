@@ -3,7 +3,6 @@ import ReactLoading from "react-loading";
 import { useTitle } from "@/hooks/use-title";
 import { useHomePost } from "@/hooks/use-post";
 
-import Header from "@/components/custom/Header";
 import Gradient from "@/components/custom/Gradient";
 
 import Static from "./Static";
@@ -15,10 +14,9 @@ export default function Home() {
   const { data, isPending, onSubmit } = useHomePost();
 
   return (
-    <>
-      <Header heading="Belief" />
-      <Gradient />
+    <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
       <Static />
+      <Gradient />
       <Input onSubmit={onSubmit} />
 
       {isPending ? (
@@ -26,6 +24,6 @@ export default function Home() {
       ) : (
         <Output response={data} />
       )}
-    </>
+    </main>
   );
 }

@@ -10,8 +10,6 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Stats from "@/pages/Stats";
 import Footer from "@/components/custom/Footer";
-import Wrapper from "@/components/custom/Wrapper";
-
 import { Toaster } from "./components/shadcn/toaster";
 
 function App() {
@@ -26,13 +24,11 @@ function App() {
   return (
     <>
       <NavBar />
-      <Wrapper>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/stats" element={<Stats />} />
-        </Routes>
-      </Wrapper>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/stats" element={<Stats />} />
+      </Routes>
       <Footer />
       <Toaster />
     </>

@@ -1,24 +1,19 @@
 function Static() {
   return (
-    <>
-      <section className="flex justify-center flex-col items-center w-[70%]">
-        <p className="text-[1.1rem] text-center">
-          A Sentiment Analysis Webpage which analyzes and identifies the
-          sentiment of that keyword or Tweet and categorizes it to Either
-          Positive, Negative or Neutral. <br />
-          <br />
-          Kindly note that, The Machine Learning Model is trained with
-          <span className="text-[#1da1f2] font-semibold"> 200,000+ </span>{" "}
-          Publicly available
-          <span className="text-[#1da1f2] font-semibold">
-            {" "}
-            COVID-19 Case Study On Twitter Dataset{" "}
-          </span>{" "}
-          so the Keywords or Tweets must be related on COVID-19. <br />
-          <br />
-        </p>
-      </section>
-    </>
+    <section className="flex justify-center flex-col items-center gap-y-8 mt-10">
+      <div className="flex flex-col gap-y-3 w-full items-center justify-center">
+        <h2 className="w-11/12 font-bold text-center leading-tight text-4xl 2xs:text-5xl text-[#1da1f2] font-['Prompt']">
+          Deciphering the Digital Mood:
+        </h2>
+        <h2 className="w-11/12 font-bold leading-tight text-center text-4xl 2xs:text-5xl text-[#1da1f2] font-['Prompt']">
+          Find the Sentiment in Every Tweet
+        </h2>
+      </div>
+      <h3 className="text-2xl text-gray-400 text-center px-4">
+        Leveraging Insights from <span className="text-[#1da1f2]">200,000+</span> Tweets for Comprehensive Sentiment
+        Analysis
+      </h3>
+    </section>
   );
 }
 

@@ -3,7 +3,6 @@ import ReactLoading from "react-loading";
 import { useTitle } from "@/hooks/use-title";
 import { useStatsPost } from "@/hooks/use-post";
 
-import Header from "@/components/custom/Header";
 import Gradient from "@/components/custom/Gradient";
 
 import Input from "./Input";
@@ -15,8 +14,7 @@ const Stats = () => {
   const { data, isPending, onSubmit } = useStatsPost();
 
   return (
-    <>
-      <Header heading="Stats for Nerds" />
+    <main className="flex flex-col justify-center items-center gap-6">
       <Gradient />
       <Input onSubmit={onSubmit} />
 
@@ -28,7 +26,7 @@ const Stats = () => {
           {data?.model_name && <ModelStats response={data} />}
         </>
       )}
-    </>
+    </main>
   );
 };
 

@@ -2,7 +2,6 @@ import { useTitle } from "@/hooks/use-title";
 
 import { devs } from "@/utils/devs";
 
-import Header from "@/components/custom/Header";
 import Static from "./Static";
 import Avatar from "./Avatar";
 import Gradient from "@/components/custom/Gradient";
@@ -10,8 +9,7 @@ import Gradient from "@/components/custom/Gradient";
 export default function About() {
   useTitle("About");
   return (
-    <>
-      <Header heading="About our Team" />
+    <main className="flex flex-col justify-center items-center gap-6">
       <Gradient />
       <Static />
       <section className="flex flex-col justify-center items-center gap-4">
@@ -23,6 +21,6 @@ export default function About() {
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }
