@@ -117,7 +117,7 @@ def stats():
     return response
 
 
-@app.route("/api/v1/wake")
+@app.route("/api/v1/health")
 def wake():
     return jsonify({
         'wakeStatus': True

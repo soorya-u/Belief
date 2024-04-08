@@ -14,7 +14,7 @@ import { Toaster } from "./components/shadcn/toaster";
 
 function App() {
   const { isError } = useQuery({
-    queryKey: ["wake"],
+    queryKey: ["health"],
     queryFn: async () => await AxiosService.wakeServer(),
     refetchInterval: 1000 * 60 * 10, // 10 Minutes
   });
