@@ -9,7 +9,7 @@ import Gradient from "@/components/custom/Gradient";
 export default function About() {
   useTitle("About");
   return (
-    <main className="flex flex-col justify-center items-center gap-6">
+    <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
       <Gradient />
       <Static />
       <section className="flex flex-col justify-center items-center gap-4">

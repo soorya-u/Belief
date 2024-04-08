@@ -10,8 +10,9 @@ function Static() {
         </h2>
       </div>
       <h3 className="text-2xl text-gray-400 text-center px-4">
-        Leveraging Insights from <span className="text-[#1da1f2]">200,000+</span> Tweets for Comprehensive Sentiment
-        Analysis
+        Leveraging Insights from{" "}
+        <span className="text-[#1da1f2]">200,000+</span> Tweets for
+        Comprehensive Sentiment Analysis
       </h3>
     </section>
   );

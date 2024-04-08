@@ -14,7 +14,7 @@ const Stats = () => {
   const { data, isPending, onSubmit } = useStatsPost();
 
   return (
-    <main className="flex flex-col justify-center items-center gap-6">
+    <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
       <Gradient />
       <Input onSubmit={onSubmit} />
 
