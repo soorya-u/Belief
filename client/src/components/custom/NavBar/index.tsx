@@ -1,21 +1,21 @@
-import { NavLink, Link } from "react-router-dom";
-
-import logo from "@/assets/img/logo.png";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <header className="sticky top-0 w-full bg-gradient-to-b from-[#000000be] to-transparent via-[95%] backdrop-blur-[7px] z-[3]">
       <nav className="flex h-[10vh] p-2 px-4 2xs:px-10 items-center justify-between">
-        <Link to="/">
-          <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-[2.5rem] font-extrabold leading-tight 2xs:block hidden">
+        <NavLink to="/">
+          <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-3xl font-extrabold leading-tight 2xs:block hidden">
             Belief
           </h1>
           <img
-            src={logo}
+            src="/logo.png"
             alt="Logo"
-            className="h-12 w-12 aspect-square 2xs:hidden"
+            className="aspect-square 2xs:hidden"
+            width={40}
+            height={40}
           />
-        </Link>
+        </NavLink>
         <ul className="list-none flex gap-4 md:gap-12 md:px-0 sm:gap-8 sm:px-8">
           <li className="inline">
             <NavLink

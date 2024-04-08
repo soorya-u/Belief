@@ -10,8 +10,8 @@ export default function About() {
   useTitle("About");
   return (
     <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
-      <Gradient />
       <Static />
+      <Gradient />
       <section className="flex flex-col justify-center items-center gap-4">
         <h2 className="text-[#1da1f2] text-[2rem] font-bold">Teammates</h2>
 

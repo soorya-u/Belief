@@ -5,6 +5,7 @@ import { useStatsPost } from "@/hooks/use-post";
 
 import Gradient from "@/components/custom/Gradient";
 
+import Static from "./Static";
 import Input from "./Input";
 import Output from "./Output";
 import ModelStats from "./ModelStats";
@@ -15,6 +16,7 @@ const Stats = () => {
 
   return (
     <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
+      <Static />
       <Gradient />
       <Input onSubmit={onSubmit} />
 
