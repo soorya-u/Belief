@@ -6,7 +6,7 @@ function Dropdown({
   control,
   isSubmitting,
 }: {
-  control: Control<StatsPayload, unknown, StatsPayload>;
+  control: Control<StatsPayload, StatsPayload>;
   isSubmitting: boolean;
 }) {
   return (
