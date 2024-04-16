@@ -22,7 +22,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "font-['Prompt'] text-[#1da1f2] no-underline text-2xl"
-                  : "font-['Prompt']no-underline text-white text-2xl"
+                  : "font-['Prompt'] text-white no-underline text-2xl"
               }
               to="/about"
               end
@@ -35,7 +35,7 @@ const NavBar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "font-['Prompt'] text-[#1da1f2] no-underline text-2xl"
-                  : "font-['Prompt']no-underline text-white text-2xl"
+                  : "font-['Prompt'] text-white no-underline text-2xl"
               }
               to="/stats"
               end
