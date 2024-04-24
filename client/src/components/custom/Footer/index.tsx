@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-between items-center min-h-16 w-[85vw] m-auto gap-y-4 border-t-[2px] border-t-[#ffffff49] md-lg:flex-row py-3">
-      <div className="flex justify-center gap-x-2 items-center gap-y-1 flex-wrap">
+    <footer className="m-auto flex min-h-16 w-[85vw] flex-col items-center justify-between gap-y-4 border-t-[2px] border-t-[#ffffff49] py-3 md-lg:flex-row">
+      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
         <img src="/logo.png" width={28} height={28} alt="Elite-AIML-Logo" />
-        <p className={"text-gray-200 text-center text-['Prompt']"}>
+        <p className={"text-center text-['Prompt'] text-gray-200"}>
           Built by{" "}
           <a
             href="https://twitter.com/sooryaa_u"
@@ -23,8 +23,8 @@ export default function Footer() {
           .
         </p>
       </div>
-      <div className="flex justify-center items-center gap-x-2 gap-y-1 flex-wrap">
-        <p className={"text-gray-200 text-center text-['Prompt']"}>
+      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+        <p className={"text-center text-['Prompt'] text-gray-200"}>
           Check these Projects Out:
         </p>
         <a href="https://grade-grove.soorya-u.dev" target="_blank">

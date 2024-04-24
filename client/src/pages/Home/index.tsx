@@ -14,7 +14,7 @@ export default function Home() {
   const { data, isPending, onSubmit } = useHomePost();
 
   return (
-    <main className="flex flex-col justify-center items-center gap-7 before:content-[''] after:content-['']">
+    <main className="flex flex-col items-center justify-center gap-7 before:content-[''] after:content-['']">
       <Static />
       <Gradient />
       <Input onSubmit={onSubmit} />

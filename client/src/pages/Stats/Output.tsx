@@ -7,14 +7,14 @@ function Output({ response }: { response: StatsResult | undefined }) {
   return (
     <>
       {" "}
-      <section className="w-[95vw] flex flex-col justify-around md:justify-between lg:justify-evenly lg:w-[60vw] sm:flex-row gap-6 sm:gap-0">
-        <section className="flex flex-col justify-center items-center gap-2 self-center sm:self-start">
+      <section className="flex w-[95vw] flex-col justify-around gap-6 sm:flex-row sm:gap-0 md:justify-between lg:w-[60vw] lg:justify-evenly">
+        <section className="flex flex-col items-center justify-center gap-2 self-center sm:self-start">
           <OverallPrediction response={response.output} />
         </section>
-        <section className="font-['Chakra_Petch'] flex flex-col justify-center items-center gap-2">
+        <section className="flex flex-col items-center justify-center gap-2 font-['Chakra_Petch']">
           {(response.positive || response.neutral || response.negative) && (
             <>
-              <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
+              <h2 className="px-2 text-center font-['Chakra_Petch'] text-2xl font-extrabold">
                 Keyword Prediction
               </h2>
               <table border={0} cellPadding={7}>
@@ -26,8 +26,8 @@ function Output({ response }: { response: StatsResult | undefined }) {
                         idx === 0
                           ? "Positive"
                           : idx === 1
-                          ? "Neutral"
-                          : "Negative";
+                            ? "Neutral"
+                            : "Negative";
                       return (
                         <PercentagePrediction
                           key={feeling}
@@ -35,7 +35,7 @@ function Output({ response }: { response: StatsResult | undefined }) {
                           percentage={r}
                         />
                       );
-                    }
+                    },
                   )}
                 </tbody>
               </table>

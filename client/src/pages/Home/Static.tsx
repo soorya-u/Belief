@@ -1,6 +1,6 @@
 function Static() {
   return (
-    <section className="flex justify-center flex-col items-center gap-y-8 mt-10">
+    <section className="mt-10 flex flex-col items-center justify-center gap-y-8">
       <img
         className="hidden 2xs:block"
         width={112}
@@ -8,15 +8,15 @@ function Static() {
         src={"/logo.png"}
         alt="Logo"
       />
-      <div className="flex flex-col gap-y-3 w-full items-center justify-center">
-        <h2 className="w-11/12 font-bold text-center leading-tight text-4xl 2xs:text-5xl text-[#1da1f2] font-['Prompt']">
+      <div className="flex w-full flex-col items-center justify-center gap-y-3">
+        <h2 className="w-11/12 text-center font-['Prompt'] text-4xl font-bold leading-tight text-[#1da1f2] 2xs:text-5xl">
           Deciphering the Digital Mood:
         </h2>
-        <h2 className="w-11/12 font-bold leading-tight text-center text-4xl 2xs:text-5xl text-[#1da1f2] font-['Prompt']">
+        <h2 className="w-11/12 text-center font-['Prompt'] text-4xl font-bold leading-tight text-[#1da1f2] 2xs:text-5xl">
           Find the Sentiment in Every Tweet
         </h2>
       </div>
-      <p className="text-2xl text-gray-400 text-center px-4">
+      <p className="px-4 text-center text-2xl text-gray-400">
         Leveraging Insights from{" "}
         <span className="text-[#1da1f2]">200,000+</span> Tweets for
         Comprehensive Sentiment Analysis

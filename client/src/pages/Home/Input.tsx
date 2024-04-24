@@ -19,14 +19,14 @@ function Input({ onSubmit }: { onSubmit: SubmitHandler<MainPayload> }) {
 
   return (
     <>
-      <section className="flex flex-col justify-center items-center gap-4 after:content-['']">
-        <h2 className="text-[#1da1f2] font-['Chakra_Petch'] text-center px-2 text-2xl font-bold">
+      <section className="flex flex-col items-center justify-center gap-4 after:content-['']">
+        <h2 className="px-2 text-center font-['Chakra_Petch'] text-2xl font-bold text-[#1da1f2]">
           Enter your Keyword or Tweets:
         </h2>
         <form
           noValidate
           onSubmit={handleSubmit(onSubmit, onSubmitError)}
-          className="bg-[#202630] w-[85vw] xs:w-[25rem] rounded-[40px] border-[2px] border-[#1da1f2] px-[18px] py-[10px] box-content xs:box-border"
+          className="box-content w-[85vw] rounded-[40px] border-[2px] border-[#1da1f2] bg-[#202630] px-[18px] py-[10px] xs:box-border xs:w-[25rem]"
         >
           <TweetInput register={register} isSubmitting={isSubmitting} />
         </form>

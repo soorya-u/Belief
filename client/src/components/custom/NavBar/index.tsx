@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <header className="sticky top-0 w-full bg-gradient-to-b from-[#000000be] to-transparent via-[95%] backdrop-blur-[7px] z-[3]">
-      <nav className="flex h-[10vh] p-2 px-4 2xs:px-10 items-center justify-between">
+    <header className="sticky top-0 z-[3] w-full bg-gradient-to-b from-[#000000be] via-[95%] to-transparent backdrop-blur-[7px]">
+      <nav className="flex h-[10vh] items-center justify-between p-2 px-4 2xs:px-10">
         <NavLink to="/">
-          <h1 className="font-['Chakra_Petch'] text-[#1da1f2] text-center px-2 text-3xl font-extrabold leading-tight 2xs:block hidden">
+          <h1 className="hidden px-2 text-center font-['Chakra_Petch'] text-3xl font-extrabold leading-tight text-[#1da1f2] 2xs:block">
             Belief
           </h1>
           <img
@@ -16,13 +16,13 @@ const NavBar = () => {
             height={40}
           />
         </NavLink>
-        <ul className="list-none flex gap-4 md:gap-12 md:px-0 sm:gap-8 sm:px-8">
+        <ul className="flex list-none gap-4 sm:gap-8 sm:px-8 md:gap-12 md:px-0">
           <li className="inline">
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "font-['Prompt'] text-[#1da1f2] no-underline text-2xl"
-                  : "font-['Prompt'] text-white no-underline text-2xl"
+                  ? "font-['Prompt'] text-2xl text-[#1da1f2] no-underline"
+                  : "font-['Prompt'] text-2xl text-white no-underline"
               }
               to="/about"
               end
@@ -34,8 +34,8 @@ const NavBar = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "font-['Prompt'] text-[#1da1f2] no-underline text-2xl"
-                  : "font-['Prompt'] text-white no-underline text-2xl"
+                  ? "font-['Prompt'] text-2xl text-[#1da1f2] no-underline"
+                  : "font-['Prompt'] text-2xl text-white no-underline"
               }
               to="/stats"
               end

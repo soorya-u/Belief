@@ -25,14 +25,14 @@ function OverallPrediction({ response }: { response: string }) {
 
   return (
     <>
-      <h2 className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold">
+      <h2 className="px-2 text-center font-['Chakra_Petch'] text-2xl font-extrabold">
         Overall Prediction
       </h2>
       <div className="flex gap-2">
         <img className="w-8" src={output.emoji} alt="positive" />
         <h2
           style={{ color: output.color }}
-          className="font-['Chakra_Petch'] text-center px-2 text-2xl font-extrabold"
+          className="px-2 text-center font-['Chakra_Petch'] text-2xl font-extrabold"
         >
           {output.result}
         </h2>

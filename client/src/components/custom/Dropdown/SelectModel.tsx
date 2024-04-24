@@ -19,13 +19,13 @@ function SelectModel({
   return (
     <>
       <Select value={value} onValueChange={onChange} disabled={isSubmitting}>
-        <SelectTrigger className="w-[85vw] xs:w-[20rem] h-[70px] rounded-[15px] leading-[1.75rem] text-[1.125rem] border-[2px] border-[#1da1f2] bg-[#2026309a]">
+        <SelectTrigger className="h-[70px] w-[85vw] rounded-[15px] border-[2px] border-[#1da1f2] bg-[#2026309a] text-[1.125rem] leading-[1.75rem] xs:w-[20rem]">
           <SelectValue
-            className="text-[#989FAB] font-['Maven_Pro']"
+            className="font-['Maven_Pro'] text-[#989FAB]"
             placeholder="Select a Model..."
           />
         </SelectTrigger>
-        <SelectContent className="bg-[#2026309a] backdrop-blur-sm rounded-[15px] border-[2px] border-[#1da1f2]">
+        <SelectContent className="rounded-[15px] border-[2px] border-[#1da1f2] bg-[#2026309a] backdrop-blur-sm">
           <SelectGroup>
             <SelectItem value="Ada-Boost-Classifier">
               Ada Boost Classifier

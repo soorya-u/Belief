@@ -5,7 +5,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { UseFormRegister } from "react-hook-form";
 import { MainPayload, StatsPayload } from "@/types";
 
-function  TweetInput({
+function TweetInput({
   register,
   isSubmitting,
 }: {
@@ -18,7 +18,7 @@ function  TweetInput({
         disabled={isSubmitting}
         type="text"
         placeholder="Enter a tweet..."
-        className="w-[80%] border-none outline-none px-[15px] xs:px-[10px] bg-none text-lg duration-500 ease-in leading-10 text-white bg-transparent xs:w-[20rem]"
+        className="w-[80%] border-none bg-transparent bg-none px-[15px] text-lg leading-10 text-white outline-none duration-500 ease-in xs:w-[20rem] xs:px-[10px]"
         // @ts-expect-error Strict Type Checking
         {...register("tweet", {
           required: { value: true, message: "The Tweet is Required" },
@@ -28,18 +28,18 @@ function  TweetInput({
       <button
         disabled={isSubmitting}
         type="submit"
-        className="bg-[#1da1f2] text-center border-none rounded-full text-[#eafaf1] float-right h-10 aspect-square flex justify-center items-center transition-[0.4s] cursor-pointer hover:bg-white disabled:bg-[#1da1f2] disabled:opacity-40 group"
+        className="group float-right flex aspect-square h-10 cursor-pointer items-center justify-center rounded-full border-none bg-[#1da1f2] text-center text-[#eafaf1] transition-[0.4s] hover:bg-white disabled:bg-[#1da1f2] disabled:opacity-40"
         style={{ cursor: isSubmitting ? "not-allowed" : "" }}
       >
         {isSubmitting ? (
           <FontAwesomeIcon
             icon={faSpinner}
-            className="animate-spin w-[20px] h-[20px]"
+            className="h-[20px] w-[20px] animate-spin"
           />
         ) : (
           <FontAwesomeIcon
             icon={faTwitter}
-            className="w-[15px] h-[15px] group-hover:[&_path]:text-black"
+            className="h-[15px] w-[15px] group-hover:[&_path]:text-black"
           />
         )}
       </button>

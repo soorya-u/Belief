@@ -15,8 +15,8 @@ export default function TanStackQueryProvider({
           import("@tanstack/react-query-devtools").then(
             ({ ReactQueryDevtools }) => ({
               default: ReactQueryDevtools,
-            })
-          )
+            }),
+          ),
         );
 
   return (

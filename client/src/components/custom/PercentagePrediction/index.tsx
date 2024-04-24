@@ -26,13 +26,13 @@ function PercentagePrediction({
   return (
     <>
       <tr>
-        <td className="font-['Chakra_Petch'] text-[1.3rem] pr-2">
+        <td className="pr-2 font-['Chakra_Petch'] text-[1.3rem]">
           {output.result}:
         </td>
         <td className="font-['Chakra_Petch']">
-          <div className="flex justify-start items-center gap-2 xs:w-[230px] border-[2px] border-white rounded-[15px] overflow-hidden text-white h-[1.3rem] w-[60vw]">
+          <div className="flex h-[1.3rem] w-[60vw] items-center justify-start gap-2 overflow-hidden rounded-[15px] border-[2px] border-white text-white xs:w-[230px]">
             <span
-              className="font-['Chakra_Petch'] self-start flex justify-center items-center px-6 overflow-hidden h-full text-black"
+              className="flex h-full items-center justify-center self-start overflow-hidden px-6 font-['Chakra_Petch'] text-black"
               style={{
                 width: percentage + "%",
                 backgroundColor: output.color,

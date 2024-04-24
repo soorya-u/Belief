@@ -1,11 +1,11 @@
 function Static() {
   return (
-    <section className="flex justify-center items-center flex-col gap-y-8 mt-16">
-      <h1 className="font-['Prompt'] text-[#1da1f2] text-4xl 2xs:text-5xl font-extrabold text-center w-10/12">
+    <section className="mt-16 flex flex-col items-center justify-center gap-y-8">
+      <h1 className="w-10/12 text-center font-['Prompt'] text-4xl font-extrabold text-[#1da1f2] 2xs:text-5xl">
         About Us
       </h1>
-      <p className="text-center text-2xl w-10/12 text-gray-400">
-        <span className="font-['Chakra_Petch'] text-[#1da1f2] font-extrabold">
+      <p className="w-10/12 text-center text-2xl text-gray-400">
+        <span className="font-['Chakra_Petch'] font-extrabold text-[#1da1f2]">
           Belief
         </span>{" "}
         offers precise sentiment analysis for tweets, categorizing them as
