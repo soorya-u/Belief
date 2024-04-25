@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/shadcn/select";
+} from "@/components/primitives/select";
 
 function SelectModel({
   isSubmitting,
