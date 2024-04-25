@@ -10,7 +10,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Stats from "@/pages/Stats";
 import Footer from "@/components/custom/Footer";
-import { Toaster } from "./components/shadcn/toaster";
+import { Toaster } from "@/components/primitives/toaster";
 
 function App() {
   const { isError } = useQuery({
