@@ -1,8 +1,8 @@
-import dev_soo from "@/assets/img/devs/soorya.jpg";
-import dev_saa from "@/assets/img/devs/saanvi.jpg";
-import dev_ai from "@/assets/img/devs/aishwarya.jpg";
-import dev_de from "@/assets/img/devs/devi.jpg";
-import dev_pr from "@/assets/img/devs/pratham.jpg";
+import dev_soo from "@/assets/devs/soorya.jpg";
+import dev_saa from "@/assets/devs/saanvi.jpg";
+import dev_ai from "@/assets/devs/aishwarya.jpg";
+import dev_de from "@/assets/devs/devi.jpg";
+import dev_pr from "@/assets/devs/pratham.jpg";
 
 export const devs = [
   {

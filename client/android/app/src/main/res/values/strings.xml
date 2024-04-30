@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Belief</string>
+    <string name="title_activity_main">Belief</string>
+    <string name="package_name">dev.soorya_u.belief</string>
+    <string name="custom_url_scheme">dev.soorya_u.belief</string>
+</resources>
