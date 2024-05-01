@@ -11,6 +11,13 @@ const config: CapacitorConfig = {
   },
   ios: {
     allowsLinkPreview: true,
+    backgroundColor: "#000",
+    scrollEnabled: true,
+    path: "./mobile/ios",
+  },
+  android: {
+    backgroundColor: "#000",
+    path: "./mobile/android",
   },
 };
 
