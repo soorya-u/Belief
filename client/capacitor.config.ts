@@ -5,10 +5,6 @@ const config: CapacitorConfig = {
   appName: "Belief",
   webDir: "dist",
   backgroundColor: "#000",
-  server: {
-    url: "https://belief.soorya-u.dev",
-    cleartext: true,
-  },
   ios: {
     allowsLinkPreview: true,
     backgroundColor: "#000",
