@@ -34,7 +34,7 @@ function PercentagePrediction({
             <span
               className="flex h-full items-center justify-center self-start overflow-hidden px-6 font-['Chakra_Petch'] text-black"
               style={{
-                width: percentage + "%",
+                width: `${percentage}%`,
                 backgroundColor: output.color,
               }}
             >

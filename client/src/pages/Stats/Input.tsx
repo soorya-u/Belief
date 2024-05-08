@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { StatsPayload } from "@/types";
 import { useToast } from "@/components/primitives/use-toast";
 
-import TweetInput from "@/components/custom/TweetInput/TweetInput";
+import TweetInput from "@/components/custom/TweetInput";
 import Dropdown from "@/components/custom/Dropdown";
 
 function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
