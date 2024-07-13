@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "format": "prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "android": "bunx cap sync && bunx cap run android",
-    "ios": "bunx cap sync && bunx cap run ios"
+    "ios": "bunx cap sync && bunx cap run ios",
+    "assets": "bunx capacitor-assets generate --iconBackgroundColor '#000' --iconBackgroundColorDark '#000' --splashBackgroundColor '#000' --splashBackgroundColorDark '#000' --iosProject ./mobile/ios/App --androidProject ./mobile/android"
   },
   "dependencies": {
     "@capacitor/android": "^6.0.0",

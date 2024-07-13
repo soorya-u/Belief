@@ -2,7 +2,6 @@ import dev_soo from "@/assets/devs/soorya.jpg";
 import dev_saa from "@/assets/devs/saanvi.jpg";
 import dev_ai from "@/assets/devs/aishwarya.jpg";
 import dev_de from "@/assets/devs/devi.jpg";
-import dev_pr from "@/assets/devs/pratham.jpg";
 
 export const devs = [
   {
@@ -24,10 +23,5 @@ export const devs = [
     name: "Devika M",
     usn: "4AI21AI015",
     image: dev_de,
-  },
-  {
-    name: "Pratham KR",
-    usn: "4AI21AI039",
-    image: dev_pr,
   },
 ];
