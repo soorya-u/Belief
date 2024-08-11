@@ -1,25 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 
-import { AxiosService } from "./libs/axios";
-import { useQuery } from "@tanstack/react-query";
+import { useServer } from "./hooks/use-server";
 
-import { useNetworkAlert } from "./hooks/use-alert";
-
-import NavBar from "@/components/custom/NavBar";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Stats from "@/pages/Stats";
+
+import { Toaster } from "@/components/ui/toaster";
+import NavBar from "@/components/custom/NavBar";
 import Footer from "@/components/custom/Footer";
-import { Toaster } from "@/components/primitives/toaster";
 
 function App() {
-  const { isError } = useQuery({
-    queryKey: ["health"],
-    queryFn: async () => await AxiosService.wakeServer(),
-    refetchInterval: 1000 * 60 * 10, // 10 Minutes
-  });
-
-  useNetworkAlert(isError);
+  useServer();
 
   return (
     <>

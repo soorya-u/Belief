@@ -5,8 +5,8 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "@/components/primitives/toast";
-import { useToast } from "@/components/primitives/use-toast";
+} from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export function Toaster() {

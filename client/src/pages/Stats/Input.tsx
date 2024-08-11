@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { StatsPayload } from "@/types";
-import { useToast } from "@/components/primitives/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 import TweetInput from "@/components/custom/TweetInput";
 import Dropdown from "@/components/custom/Dropdown";

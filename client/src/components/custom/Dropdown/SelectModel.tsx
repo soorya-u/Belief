@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/primitives/select";
+} from "@/components/ui/select";
 
 function SelectModel({
   isSubmitting,

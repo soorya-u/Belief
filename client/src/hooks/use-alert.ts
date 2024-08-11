@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useToast } from "@/components/primitives/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 
 export function useNetworkAlert(error: boolean) {
   const { toast } = useToast();
