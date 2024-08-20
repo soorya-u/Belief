@@ -1,3 +1,6 @@
+const datasetSrc =
+  "https://www.kaggle.com/datasets/smid80/coronavirus-covid19-tweets-late-april";
+
 function Static() {
   return (
     <section className="mt-10 flex flex-col items-center justify-center gap-y-8">
@@ -18,8 +21,10 @@ function Static() {
       </div>
       <p className="px-4 text-center text-2xl text-gray-400">
         Leveraging Insights from{" "}
-        <span className="text-[#1da1f2]">200,000+</span> Tweets for
-        Comprehensive Sentiment Analysis
+        <a href={datasetSrc} className="text-[#1da1f2]">
+          200,000+
+        </a>{" "}
+        Tweets for Comprehensive Sentiment Analysis
       </p>
     </section>
   );
