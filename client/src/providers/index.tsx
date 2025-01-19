@@ -1,12 +1,10 @@
-import ReactRouterProvider from "./ReactRouterProvider";
-import TanStackQueryProvider from "./TanStackQueryProvider";
+import ReactRouterProvider from "./react-router";
+import TanStackQueryProvider from "./tanstack-query";
 
-function Providers({ children }: { children: React.ReactNode }) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ReactRouterProvider>
       <TanStackQueryProvider>{children}</TanStackQueryProvider>
     </ReactRouterProvider>
   );
 }
-
-export default Providers;

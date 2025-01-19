@@ -1,4 +1,4 @@
-function Static() {
+export default function Static() {
   return (
     <section className="mt-16 flex flex-col items-center justify-center gap-y-8">
       <h1 className="w-10/12 text-center font-['Prompt'] text-4xl font-extrabold text-[#1da1f2] 2xs:text-5xl">
@@ -15,5 +15,3 @@ function Static() {
     </section>
   );
 }
-
-export default Static;

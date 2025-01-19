@@ -1,4 +1,4 @@
-function Avatar({
+export default function Avatar({
   name,
   usn,
   image,
@@ -35,5 +35,3 @@ function Avatar({
     </div>
   );
 }
-
-export default Avatar;
