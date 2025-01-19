@@ -2,9 +2,9 @@ import { useTitle } from "@/hooks/use-title";
 
 import { devs } from "@/utils/devs";
 
-import Static from "./Static";
-import Avatar from "./Avatar";
-import Gradient from "@/components/custom/Gradient";
+import Static from "./static";
+import Avatar from "./avatar";
+import Gradient from "@/components/gradient";
 
 export default function About() {
   useTitle("About");

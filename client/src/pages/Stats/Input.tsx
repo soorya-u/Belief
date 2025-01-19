@@ -3,8 +3,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { StatsPayload } from "@/types";
 import { useToast } from "@/components/ui/use-toast";
 
-import TweetInput from "@/components/custom/TweetInput";
-import Dropdown from "@/components/custom/Dropdown";
+import TweetInput from "@/components/tweet-input";
+import Dropdown from "@/components/modules/dropdown";
 
 function Input({ onSubmit }: { onSubmit: SubmitHandler<StatsPayload> }) {
   const { toast } = useToast();

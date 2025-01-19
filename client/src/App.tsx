@@ -7,8 +7,8 @@ import About from "@/pages/About";
 import Stats from "@/pages/Stats";
 
 import { Toaster } from "@/components/ui/toaster";
-import NavBar from "@/components/custom/NavBar";
-import Footer from "@/components/custom/Footer";
+import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 function App() {
   useServer();

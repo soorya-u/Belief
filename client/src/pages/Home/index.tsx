@@ -3,11 +3,11 @@ import ReactLoading from "react-loading";
 import { useTitle } from "@/hooks/use-title";
 import { useHomePost } from "@/hooks/use-post";
 
-import Gradient from "@/components/custom/Gradient";
+import Gradient from "@/components/gradient";
 
-import Static from "./Static";
-import Input from "./Input";
-import Output from "./Output";
+import Static from "./static";
+import Input from "./input";
+import Output from "./output";
 
 export default function Home() {
   useTitle();
