@@ -1,16 +1,23 @@
-FROM node:20.10-slim
+FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
-RUN npm i --global pnpm
+ARG BACKEND_URL
+ENV VITE_BACKEND_URL=${BACKEND_URL}
 
-COPY package.json .
-COPY pnpm-lock.yaml .
-RUN pnpm i
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
 
 COPY . .
 
+RUN bun run build
+
+FROM oven/bun:latest
+WORKDIR /app
+
+COPY --from=builder /app/dist ./public
+COPY server.js ./
+
 EXPOSE 5173
 
-ENTRYPOINT [ "pnpm", "dev" ]
-CMD [ "--host", "0.0.0.0" ]
+ENTRYPOINT ["bun", "run", "server.js"]
